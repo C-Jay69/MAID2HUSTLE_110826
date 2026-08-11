@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Success Confirmation - MAID 2 HUSTLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#06f906",
+                "background-light": "#f5f8f5",
+                "background-dark": "#000000",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(6, 249, 6, 0.25);
+        }
+        .text-gradient {
+            background: linear-gradient(to bottom right, #06f906, #a3ffa3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-gray-800/20 dark:border-gray-800/50">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between">
+<div class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">close</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-sm font-bold tracking-widest flex-1 text-center pr-12 uppercase">MAID 2 HUSTLE</h2>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+<!-- Vibrant Success Icon -->
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+<div class="relative flex items-center justify-center size-24 bg-primary/10 rounded-full border border-primary/30 glow-effect">
+<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1, 'wght' 600">check_circle</span>
+</div>
+</div>
+<!-- Headline Text with Gradient -->
+<h1 class="text-gradient text-[36px] font-bold leading-tight pb-2">Booking Confirmed!</h1>
+<!-- Meta Text / Booking ID -->
+<p class="text-gray-600 dark:text-[#8ecc8e] text-sm font-medium tracking-wider mb-8">BOOKING ID: #MH-99281</p>
+<!-- Info Card -->
+<div class="w-full mb-10">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-gray-100 dark:bg-[#121212] border border-gray-200 dark:border-gray-800 p-5 shadow-xl text-left">
+<div class="flex flex-col gap-2 flex-grow">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-tighter">Service Summary</p>
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Deep Cleaning Service</p>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-gray-700 dark:text-[#8ecc8e] text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Friday, Oct 25, 2024</span>
+</div>
+<div class="flex items-center gap-2 text-gray-700 dark:text-[#8ecc8e] text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>10:00 AM • 4 Hours</span>
+</div>
+</div>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 grayscale-[0.2]" data-alt="Interior of a clean modern living room" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3nhSvcc9iB4U7uJUkE02taEokqQ7NHGmakBBgIG_1L9WBszKaymxOEXl6bVMjoZqifQxCMO6oVzYDBLHM2M4Zs8fGOBTj-bIefjTLoB399JKjUv9j6xiVlFljgvMHR0pNNjWZjf9JjDNUpbmcqPhikHqZIenS6yceUu3yErWjS735t8VpMh_3buTxgfrbr03fQnsK8N8Yj-guZyKJImz6VaHexAiFHtyHFJ9K4WsVLitV7xKFjisaQjv72BJi2R9PFvcgIuwrMLcr");'>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full space-y-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20">
+                    View Booking
+                </button>
+<button class="w-full bg-transparent border border-gray-300 dark:border-gray-800 text-gray-800 dark:text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-[20px]">event</span>
+                    Add to Calendar
+                </button>
+</div>
+</div>
+<!-- Footer Decoration -->
+<div class="p-8 flex justify-center opacity-40">
+<div class="h-1 w-32 bg-gray-300 dark:bg-gray-800 rounded-full"></div>
+</div>
+</div>
+</body></html>

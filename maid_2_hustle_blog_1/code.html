@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maid 2 Hustle Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f13ec",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                        "card-dark": "#2a2a2a",
+                        "accent-cyan": "#00f2fe",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .gradient-text {
+            background: linear-gradient(90deg, #7f13ec 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10">
+<span class="material-symbols-outlined text-gray-700 dark:text-white">chevron_left</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight gradient-text">Maid 2 Hustle Blog</h1>
+<div class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10">
+<span class="material-symbols-outlined text-gray-700 dark:text-white">notifications</span>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Search Bar -->
+<div class="px-4 py-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-[#ad92c9] flex border-none bg-gray-100 dark:bg-white/10 items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-white/10 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-[#ad92c9] px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for tips and tricks..."/>
+</div>
+</label>
+</div>
+<!-- Category Chips -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto no-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-lg shadow-primary/20">
+<p class="text-white text-sm font-semibold">All</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-white/10 px-5">
+<p class="text-gray-700 dark:text-white text-sm font-medium">Cleaning</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-white/10 px-5">
+<p class="text-gray-700 dark:text-white text-sm font-medium">Maintenance</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-white/10 px-5">
+<p class="text-gray-700 dark:text-white text-sm font-medium">Hustle</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-white/10 px-5">
+<p class="text-gray-700 dark:text-white text-sm font-medium">Real Estate</p>
+</div>
+</div>
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Recent Posts</h3>
+</div>
+<!-- SEO Article Grid -->
+<div class="grid grid-cols-1 gap-6 p-4">
+<!-- Article Card 1 -->
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden shadow-xl shadow-black/5 flex flex-col group">
+<div class="relative aspect-video bg-cover bg-center" data-alt="Professional plumber fixing a kitchen sink" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM2kl68MO4Y2woe4B-BOXwgzC1J4V_hbvlUEWNAJFd5BmLE_n3ozrjiyySCrPs1gvPbyN_CdTG-LhJNtDLA67hJV7Yyewh9KufJoSdhcPuaE87JpGBEbg0NxMH74ZQ04z6sBFrUv8WxOUT8nPPwuq3PSrvYyKiY4E2JhqIxCiN4Eq0ZykjfKzgKI79b9v19dB6G5P140v4EyNH_rwUPY15DCtwUgvMvaN05MG2ks-C6BjqvwEpD4ScGMw0oi2iLR-uwO3YgNXsZlUa");'>
+<div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Maintenance</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-lg font-bold leading-snug line-clamp-2 group-hover:text-primary transition-colors">5 Tips for Choosing a Plumber That Won't Break the Bank</h4>
+<p class="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">Don't let a leaky faucet turn into a financial flood. Here is how to vet professionals effectively...</p>
+<div class="flex items-center justify-between mt-2 pt-3 border-t border-gray-100 dark:border-white/5">
+<span class="text-xs text-gray-400 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 4 min read
+                        </span>
+<span class="text-primary text-xs font-bold flex items-center gap-1">Read More <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Article Card 2 -->
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden shadow-xl shadow-black/5 flex flex-col group">
+<div class="relative aspect-video bg-cover bg-center" data-alt="Clean minimalist modern living room" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtn58kToS2hI9elzRQv8Y7Q5IrqBW4qRvNAqCQw408whporLCXUw3M7ak2inJA-8ECVp_xap-apcQ6ZwWXFVjNRqmOFL6z0CU_MuKr-gzeIdbBdZBXrvREGiZ-19XSknA7uZ78YLhpYyTVCpc-kgRq6yP1KUNq2-2b_XDlWbwJ-cUKv4FqurCU7-U3PheuY8elLDUewuz98TVT_BojL4vNdPetsSAPiZl3SRFWakJosWtyOegpgF4W1tg_FY-5vkSUbIUi6OrHMKKA");'>
+<div class="absolute top-3 left-3 bg-accent-cyan text-slate-900 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Cleaning</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-lg font-bold leading-snug line-clamp-2 group-hover:text-primary transition-colors">How to Prep for Your First Professional Cleaning Visit</h4>
+<p class="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">Ensure you get the best value from your maid service by following these simple pre-arrival steps...</p>
+<div class="flex items-center justify-between mt-2 pt-3 border-t border-gray-100 dark:border-white/5">
+<span class="text-xs text-gray-400 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 6 min read
+                        </span>
+<span class="text-primary text-xs font-bold flex items-center gap-1">Read More <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Article Card 3 -->
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden shadow-xl shadow-black/5 flex flex-col group">
+<div class="relative aspect-video bg-cover bg-center" data-alt="Modern house exterior at sunset" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBq2GBtCaOyzeM4mbieIO3-Spj4Z6Qzmw4n_iGfFa7yZ5Bur2yjXuiEJQcqUJmyrxNJHNucsjHKzosv9DPY8Xb-qgtCsTQlUKhVK0xYowpCKhHnxYDlzw_kLGVHtPxVct8m1niqvkFdgHKNf7YPOEnCq5U5cZhZ3R93jYNLXYtX8CqGvpcau0ZU56hGLtJS48-OsSNIQduqTcy3hhhBkqwYfsCuYaLX7v1tDrMVVYfG4P1PwtGdvdWNJj87mag0OEbnwV2T6xONN7On");'>
+<div class="absolute top-3 left-3 bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Real Estate</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<h4 class="text-slate-900 dark:text-white text-lg font-bold leading-snug line-clamp-2 group-hover:text-primary transition-colors">Boosting Your Home Value: 3 Low-Cost Maintenance Projects</h4>
+<p class="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">Small updates can lead to big returns when selling. Learn which projects offer the highest ROI...</p>
+<div class="flex items-center justify-between mt-2 pt-3 border-t border-gray-100 dark:border-white/5">
+<span class="text-xs text-gray-400 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 5 min read
+                        </span>
+<span class="text-primary text-xs font-bold flex items-center gap-1">Read More <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 w-full max-w-md left-1/2 -translate-x-1/2 bg-white/80 dark:bg-background-dark/90 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 pb-6 pt-2 px-6 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">article</span>
+<span class="text-[10px] font-bold">Blog</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+<style>
+        /* Hide scrollbar for category list */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

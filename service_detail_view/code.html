@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Detail View - MAID 2 HUSTLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a855f7",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022",
+                        "card-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bottom-nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white antialiased">
+<div class="relative flex min-h-screen flex-col pb-32">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Service Details</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- HeaderImage -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-background-dark @[480px]:rounded-xl min-h-80 relative" data-alt="A professionally cleaned modern luxury living room" style='background-image: linear-gradient(0deg, rgba(25, 16, 34, 1) 0%, rgba(25, 16, 34, 0.2) 50%, rgba(0, 0, 0, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8Un44SxG0y9JK79PrPkWZ5MAkmfx22N_bp1ckw5wS3X0H6lbIo3DlbACoMsQnBw1-Un73eT5OFp21wlyhLewfBXROIourDzLI8vWtXRCCGtSCe8zzEC91zJArQSxzx4qcuwkqsJQpZhuAlVr7AfJWG_EfhwVLuH5bt3asgeLxQDa_bTK10WXKtWOYhwxhqjpa7P652KyGJvWg4v-LQcVi1RAqT7jpfOtHXsS-jT7C4IElZjZsdE6-vLJwSsV5JmAEkONuVMazQ37f");'>
+<div class="flex p-4 flex-col gap-1">
+<span class="bg-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest w-fit">Most Popular</span>
+<h1 class="text-white tracking-tight text-[32px] font-extrabold leading-tight gradient-text">Deep House Cleaning</h1>
+</div>
+</div>
+</div>
+</div>
+<!-- BodyText -->
+<div class="px-4 pt-6">
+<h3 class="text-primary text-sm font-bold uppercase tracking-wider mb-2">The Mission</h3>
+<p class="text-gray-300 text-base font-normal leading-relaxed">
+                A comprehensive deep cleaning service designed to get your home sparkling from top to bottom. Includes baseboards, inside cabinets, and heavy-duty scrubbing of all surfaces. Perfect for move-ins or seasonal refreshes.
+            </p>
+</div>
+<!-- ListItem (Provider Bio) -->
+<div class="mt-6 px-4">
+<h3 class="text-gray-400 text-sm font-bold uppercase tracking-wider mb-3">Your Specialist</h3>
+<div class="flex items-center gap-4 bg-card-dark/50 p-4 rounded-xl border border-white/5 justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 ring-2 ring-primary/30" data-alt="Professional cleaning specialist Sarah smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYyUaLiJaH2IE0x7T6pY1Qh6Njve7i5oHovcWAyFY5zoAybjH-Fd3_BsYyGQ6K_xqs6rI8kpToD7Ry1LFh_9b1QDO_uj2S1ZPlcfprCZNm-N2kQ1wlKGsbxysj6-5unkuFk8CgTH31XGNASJw7EbvExD9KnjrvqNX9bl6Ba7R4HzhOIQk7FmB0enj07RoC24SaDOXJhmsojspOxKiLu2-lF1xlwOdeHvulcTYeXxkeOhYJUGNBIYyjSF0mXsRalhfTTsZx-PJwGtWN");'></div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-1">
+<p class="text-white text-base font-bold leading-normal">Sarah J.</p>
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+</div>
+<p class="text-[#ae90cb] text-sm font-medium leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 !text-[14px]">star</span> 
+                            4.9 • 150+ jobs
+                        </p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-primary flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Tiers -->
+<div class="mt-8 px-4 pb-10">
+<h3 class="text-gray-400 text-sm font-bold uppercase tracking-wider mb-4">Pricing Tiers</h3>
+<div class="flex flex-col gap-4">
+<!-- Basic -->
+<div class="bg-card-dark p-5 rounded-xl border border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-white text-lg font-bold">Basic</h4>
+<p class="text-gray-400 text-sm">Essential maintenance</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold text-white">$99</span>
+</div>
+</div>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Vacuuming &amp; Mopping
+                        </li>
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Dusting all surfaces
+                        </li>
+</ul>
+</div>
+<!-- Standard -->
+<div class="bg-card-dark p-5 rounded-xl border-2 border-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-tight">Best Value</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-white text-lg font-bold">Standard</h4>
+<p class="text-gray-400 text-sm">Deep room refresh</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold text-white">$149</span>
+</div>
+</div>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Everything in Basic
+                        </li>
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Inside Kitchen Cabinets
+                        </li>
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Detailed Baseboard cleaning
+                        </li>
+</ul>
+</div>
+<!-- Premium -->
+<div class="bg-card-dark p-5 rounded-xl border border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-white text-lg font-bold">Premium</h4>
+<p class="text-gray-400 text-sm">Total home sanitization</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold text-white">$199</span>
+</div>
+</div>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Everything in Standard
+                        </li>
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Appliance deep scrub (Oven/Fridge)
+                        </li>
+<li class="flex items-center gap-2 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary !text-[18px]">check_circle</span>
+                            Window track &amp; glass cleaning
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/80 bottom-nav-blur border-t border-white/5 pb-8">
+<button class="w-full bg-gradient-to-r from-primary to-[#c084fc] hover:opacity-90 active:scale-[0.98] transition-all text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span>Book This Service</span>
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rate Your Service Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f13ec",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .star-glow {
+            filter: drop-shadow(0 0 8px rgba(127, 19, 236, 0.6));
+        }
+        .submit-gradient {
+            background: linear-gradient(90deg, #7f13ec 0%, #06b6d4 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-[480px] mx-auto overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-primary/10">
+<div class="text-white flex size-12 shrink-0 items-center cursor-pointer" data-icon="close" data-size="24px">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Rate Experience</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-white gap-2 text-base font-bold min-w-0 p-0">
+<span class="material-symbols-outlined text-primary">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- ProfileHeader -->
+<div class="flex p-4 mt-4">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-24 w-24 border-2 border-primary/30" data-alt="Profile picture of a professional cleaner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtdRMAwsPX8b4iPl-F0gSHDveWCz77AWOYHVIYCmDzVBZdyjSLdx1sjgWcJAEuHxRvc50yKVCIdviULgotJeOrHBmTHKCkyMhW0ct3EzJtJnjZ7SewZQLzBrDewqquK4c87XBy0Xb-AoCtptIbfFkMQ8VPMVOPIn8uYAq69dHccosqgqNjPDCemvbCHGuIZrlBFSjUbPUZhnO-4S5QD7HBHtlMTSBex9pj2LcWCL8AoEnqCBK-Ywp1-6_vEsFUH2PFTRtmbyQo4Mi5");'>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Maid 2 Hustle</p>
+<p class="text-[#ad92c9] text-base font-normal leading-normal text-center">Deep Cleaning • Oct 24</p>
+</div>
+</div>
+</div>
+</div>
+<!-- HeadlineText / Rating Input -->
+<div class="flex flex-col items-center px-4 py-6">
+<h3 class="text-white tracking-light text-2xl font-bold leading-tight text-center pb-6">How was your service?</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary text-5xl star-glow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-5xl star-glow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-5xl star-glow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-5xl star-glow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#4d3267] text-5xl">star</span>
+</div>
+<p class="text-primary font-semibold mt-4 text-lg">Very Good!</p>
+</div>
+<!-- Quality Tags -->
+<div class="px-4 py-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4">What went well?</h3>
+<div class="flex flex-wrap gap-2">
+<div class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium border border-primary">Professional</div>
+<div class="px-4 py-2 rounded-full bg-primary/20 text-[#ad92c9] text-sm font-medium border border-primary/30">Punctual</div>
+<div class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium border border-primary">Thorough</div>
+<div class="px-4 py-2 rounded-full bg-primary/20 text-[#ad92c9] text-sm font-medium border border-primary/30">Friendly</div>
+<div class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium border border-primary">Value</div>
+</div>
+</div>
+<!-- Written Feedback -->
+<div class="px-4 py-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3">Tell us more</h3>
+<textarea class="w-full h-32 bg-primary/10 border border-primary/20 rounded-xl p-4 text-white placeholder-[#ad92c9] focus:outline-none focus:border-primary transition-colors" placeholder="Share your experience with the Maid 2 Hustle team..."></textarea>
+</div>
+<!-- Add Photo -->
+<div class="px-4 py-4 mb-20">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3">Show off the results</h3>
+<div class="flex gap-4">
+<div class="w-24 h-24 flex flex-col items-center justify-center border-2 border-dashed border-primary/30 rounded-xl bg-primary/5 cursor-pointer hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">add_a_photo</span>
+<span class="text-[10px] text-[#ad92c9] mt-1 font-bold">ADD PHOTO</span>
+</div>
+<!-- Placeholder for existing uploads if any -->
+<div class="w-24 h-24 rounded-xl bg-cover bg-center" data-alt="Photo of a clean living room" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS7Ax2jIi43TS2Z6hTDTnDMU0ui1xuNZfa-e4GCrYqtvPr0NKVqkT4IfbE4zLeF9EoMyuQroTPJ6eDAepqIbjc9CECte9w1YSSbgnbtAZc2_o4m6fuLPIRH4K5lq7LCL3E-iwhvTGXeeprJkQr_sKOlV4aJa6OZkrZxIw8G7GKu11SbKvL0v1jEZpBqVKnNHZzj4UjdDvYsX8ChI9ZsMUVxMYcVujrGUnkIN8suDFfanZID8PjrAQkUIi00wlTIj2Khjc2uv2SAHLc');">
+</div>
+</div>
+</div>
+<!-- Sticky Submit Button -->
+<div class="fixed bottom-0 left-0 right-0 p-4 max-w-[480px] mx-auto bg-background-dark/80 backdrop-blur-md">
+<button class="w-full py-4 rounded-xl submit-gradient text-white font-bold text-lg shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+                Submit Review
+            </button>
+</div>
+<!-- Summary Section (Optional reveal) -->
+<div class="px-4 py-6 border-t border-primary/10 bg-primary/5 mt-auto mb-24">
+<div class="flex flex-wrap gap-x-8 gap-y-6">
+<div class="flex flex-col gap-1">
+<p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">4.8</p>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-[#ad92c9] text-xs font-normal">Based on 124 reviews</p>
+</div>
+<div class="grid min-w-[140px] flex-1 grid-cols-[15px_1fr_30px] items-center gap-y-2">
+<p class="text-white text-[10px]">5</p>
+<div class="flex h-1 flex-1 overflow-hidden rounded-full bg-[#4d3267]"><div class="rounded-full bg-primary" style="width: 85%;"></div></div>
+<p class="text-[#ad92c9] text-[10px] text-right">85%</p>
+<p class="text-white text-[10px]">4</p>
+<div class="flex h-1 flex-1 overflow-hidden rounded-full bg-[#4d3267]"><div class="rounded-full bg-primary" style="width: 10%;"></div></div>
+<p class="text-[#ad92c9] text-[10px] text-right">10%</p>
+<p class="text-white text-[10px]">3</p>
+<div class="flex h-1 flex-1 overflow-hidden rounded-full bg-[#4d3267]"><div class="rounded-full bg-primary" style="width: 5%;"></div></div>
+<p class="text-[#ad92c9] text-[10px] text-right">5%</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

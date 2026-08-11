@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a855f7",
+                        "accent-cyan": "#06b6d4",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .gradient-text {
+            background: linear-gradient(to right, #a855f7, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+            background: #1a1023;
+            border-radius: 1.5rem;
+        }
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.5rem;
+            padding: 1px;
+            background: linear-gradient(to bottom right, #a855f7, #06b6d4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white">chevron_left</span>
+<span class="font-bold text-lg tracking-tight">Partner Success</span>
+</div>
+<button class="p-2 rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined text-white">info</span>
+</button>
+</nav>
+<main class="max-w-md mx-auto pb-32">
+<!-- Hero Section -->
+<header class="px-6 pt-12 pb-8 text-center relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-48 h-48 bg-accent-cyan/10 blur-[80px] rounded-full"></div>
+<h1 class="text-[42px] leading-[1.1] font-black uppercase tracking-tighter mb-4 relative z-10">
+                WE ONLY WIN <br/>
+<span class="gradient-text">WHEN YOU WIN</span>
+</h1>
+<p class="text-gray-400 text-lg font-medium leading-relaxed max-w-[90%] mx-auto relative z-10">
+                Our philosophy is simple: we grow when our providers grow. No upfront costs, just real results.
+            </p>
+</header>
+<!-- Rates Section -->
+<section class="px-6 space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="h-[2px] w-8 bg-primary"></span>
+<h2 class="text-xs font-black uppercase tracking-widest text-primary">Program Tiers</h2>
+</div>
+<!-- Card: Standard -->
+<div class="bg-[#121212] border border-white/10 rounded-xl p-5 flex items-center gap-4">
+<div class="flex flex-col flex-1">
+<p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1">Standard</p>
+<h3 class="text-2xl font-bold mb-1">15% Fee</h3>
+<p class="text-gray-400 text-sm leading-snug">Pay-as-you-go for every booking you complete.</p>
+</div>
+<div class="size-16 rounded-lg bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400 text-3xl">trending_up</span>
+</div>
+</div>
+<!-- Card: Top Pro (Featured) -->
+<div class="gradient-border p-6 shadow-2xl shadow-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="bg-primary px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter text-white mb-2 inline-block">Popular Choice</span>
+<h3 class="text-3xl font-black gradient-text">10% Top Pro</h3>
+</div>
+<div class="size-12 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    Unlock our lowest marketplace rate once you complete 20 jobs with a 4.8+ rating.
+                </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-white/5 rounded-full text-[11px] font-bold text-accent-cyan border border-accent-cyan/20">High Volume</span>
+<span class="px-3 py-1 bg-white/5 rounded-full text-[11px] font-bold text-accent-cyan border border-accent-cyan/20">Priority Leads</span>
+</div>
+</div>
+<!-- Card: Recurring -->
+<div class="bg-[#121212] border border-white/10 rounded-xl p-5 flex items-center gap-4">
+<div class="flex flex-col flex-1">
+<p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1">Loyalty Perk</p>
+<h3 class="text-2xl font-bold mb-1">8% Recurring</h3>
+<p class="text-gray-400 text-sm leading-snug">Reduced rates for repeat clients you bring back.</p>
+</div>
+<div class="size-16 rounded-lg bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400 text-3xl">event_repeat</span>
+</div>
+</div>
+</section>
+<!-- Perks Grid -->
+<section class="mt-12 px-6">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-cyan">rocket_launch</span>
+                The Platform Perks
+            </h2>
+<div class="grid grid-cols-1 gap-6">
+<!-- Perk 1 -->
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-base mb-1">No Lead Fees</h4>
+<p class="text-gray-400 text-sm">Don't pay for customers who don't book. We only take a cut of successful jobs.</p>
+</div>
+</div>
+<!-- Perk 2 -->
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">shield</span>
+</div>
+<div>
+<h4 class="font-bold text-base mb-1">Insurance Coverage</h4>
+<p class="text-gray-400 text-sm">General liability coverage included on every booking at no extra cost to you.</p>
+</div>
+</div>
+<!-- Perk 3 -->
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+</div>
+<div>
+<h4 class="font-bold text-base mb-1">Guaranteed Payouts</h4>
+<p class="text-gray-400 text-sm">Direct deposit within 48 hours of job completion. No chasing invoices ever.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Callout -->
+<section class="mt-12 px-6">
+<div class="w-full h-48 rounded-2xl bg-cover bg-center overflow-hidden flex items-end p-6 relative group" data-alt="professional cleaner working in a modern living room" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5K-PyFddApcqhmhVTVt66IelCApsEFpl8__pKzGW-AWOerb3DscViuCuioPJBaBx93wXHZnvqou0kRUcxRTFlDl8d7fVec96Kxyo-7OFUJZrhtbzKK-hEjOhqlNtutBAuJEzDQUU63B9TEsWO8q_KcFqMtMloxcB7tyn6XgMsmsjXEqLGPRVr8b5eNrJfI0jhdJZIy6d9GQZ1flsvvUM3FggIPO1pu3DSV78KR8YaQ03CtZgU2-fIUDtJxO06sKMw-HmH-ZcqnQmy')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative z-10">
+<p class="text-white font-black text-xl leading-tight">Join 500+ professionals <br/>leveling up their business.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-background-dark/95 backdrop-blur-xl border-t border-white/10 max-w-md mx-auto z-50">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-black py-4 rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-95 uppercase tracking-widest text-sm">
+            Apply to Provide
+        </button>
+</div>
+</body></html>

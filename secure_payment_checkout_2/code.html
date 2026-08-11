@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout - MAID 2 HUSTLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a855f7",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022",
+                        "card-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+        }
+        .trust-badge-gradient {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex justify-center">
+<div class="relative w-full max-w-[430px] min-h-screen bg-background-light dark:bg-background-dark flex flex-col shadow-2xl">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Secure Checkout</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-xl h-12 bg-transparent text-slate-900 dark:text-white p-0">
+<span class="material-symbols-outlined">lock</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 py-2">
+<div class="mb-6 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl overflow-hidden shadow-lg bg-white dark:bg-card-dark">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvUvJf2noE_O3OahfBP2szTgCgb1Z7BDj1lvwTEnJhFc53EFwCLhpHAyXTDWtBDsxFJ8wxV2OSkSehnlIV9JVbp6HVfU029biKvtZzk0yC7JiWeXpsKgSSk57JzQNah-QwYdJE7w41avqGbWdHkd24f7VGDEObO3ogcukpjPN2MM4xRdupo0Hk0b-kQJ9cI0lNWtFyKwX9ap0vFwQH8yLcexW5X4RmNbka9GssXYV2HPi1P7sH1V0lAOV05L8F8kD3TVFu0k1OU0LH");'></div>
+<div class="flex w-full flex-col gap-1 py-4 px-4">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Deep Clean - 3 Bedroom House</p>
+<p class="text-slate-500 dark:text-[#ae90cb] text-sm font-normal leading-normal flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 24, 2023 @ 10:00 AM
+                        </p>
+<div class="space-y-2 border-t border-slate-100 dark:border-slate-800 pt-3 mt-1">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Service Subtotal</span>
+<span class="text-slate-900 dark:text-white">$145.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Trust &amp; Support Fee</span>
+<span class="text-slate-900 dark:text-white font-medium">$5.00</span>
+</div>
+<div class="flex justify-between items-center pt-2 mt-1 border-t border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-900 dark:text-white font-bold text-lg">Total Amount</span>
+<span class="text-slate-900 dark:text-white font-bold text-xl">$150.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="trust-badge-gradient rounded-xl p-4 mb-6 flex items-start gap-3">
+<div class="bg-primary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1">verified_user</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white mb-0.5">Trust &amp; Safety Guarantee</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Your job is insured up to <span class="text-cyan-400 font-bold">$1,000</span> when booked through our platform. Professionals are vetted for your peace of mind.</p>
+</div>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3 pt-2">Express Checkout</h3>
+<div class="space-y-3 mb-8">
+<label class="flex items-center gap-4 bg-white dark:bg-card-dark px-4 py-4 justify-between rounded-xl shadow-sm cursor-pointer border border-transparent has-[:checked]:border-primary/50 transition-all">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-video bg-contain h-6 w-10 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMjVGZBEHcP4dvQUf64qTFM6boCU0PagiXLBvsNtEw3h0a2zmN26FZrzZ-cTNjCvr4XLJsmgn44cQ-VTgx63iELqSmmA9N2tVupV0lxw64VPlvS2p_epYdV-k09Zwc3ZzWc1GjXiUC03dnhhZDtOelh0gyEF8FOwf0CImhX_G_YZXsYFpp4Peu8687fClNVnj8xFMR-QrV5j6qRpicYzWluooyw5xmUPjTyiDi-YXALyWhsbMLjCI1SiBUUjtCKJicd8xjnUg_uYtb");'></div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Apple Pay</p>
+</div>
+<input checked="" class="h-6 w-6 rounded-full border-slate-300 dark:border-[#4d3168] bg-transparent text-primary focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+<label class="flex items-center gap-4 bg-white dark:bg-card-dark px-4 py-4 justify-between rounded-xl shadow-sm cursor-pointer border border-transparent has-[:checked]:border-primary/50 transition-all">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-video bg-contain h-6 w-10 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFMYaVTC0AGKpynFHhXAlIBIiQSMnf0E0o-0S-2HWhlDF7Q7G-O-I4Zw9jJXPwdEgKM8ItUYz8Xr0ZwjlNMn8J9ss48NSS9fFq8JYY_hqL7J4GZfWA9EBdHZV7ntQADeKCxKA6OX0skp6t0s_n2KulnABx6rR9U4wfVzcKvhp5DSAr5Jc_Sjo9tMyuSHuqhakoff_upE-SEoiqOzxGGqaxbK5obY4NRTCf-JbDdKAUrBSU2WGhNgfLdiFc_2S-QVIAeE2LL35Wy4Nb");'></div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">PayPal</p>
+</div>
+<input class="h-6 w-6 rounded-full border-slate-300 dark:border-[#4d3168] bg-transparent text-primary focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3 pt-2">Credit Card Information</h3>
+<div class="space-y-4 mb-10">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">Cardholder Name</label>
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-card-dark border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-card-dark border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-3 text-slate-400">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">Expiry (MM/YY)</label>
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-card-dark border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">CVV</label>
+<div class="relative">
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-card-dark border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="123" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-3 text-slate-400 cursor-pointer">help_outline</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center items-center gap-6 opacity-40 mb-12">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">SSL Encrypted</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">shield_with_heart</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Secure Payments</span>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 bg-background-light/90 dark:bg-background-dark/90 p-4 pt-4 border-t border-slate-200 dark:border-slate-800 ios-blur">
+<p class="text-center text-[10px] text-slate-400 dark:text-slate-500 mb-4 px-4 uppercase tracking-widest font-bold">
+                By tapping confirm, you agree to the MAID 2 HUSTLE terms of service.
+            </p>
+<button class="btn-gradient w-full h-14 rounded-xl text-white font-bold text-lg shadow-[0_8px_30px_rgb(168,85,247,0.3)] flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span>Pay &amp; Confirm Booking</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="h-6"></div> 
+</footer>
+</div>
+
+</body></html>

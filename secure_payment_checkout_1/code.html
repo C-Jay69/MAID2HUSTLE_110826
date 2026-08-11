@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Payment Checkout - MAID 2 HUSTLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a855f7",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+        }
+        .input-dark {
+            background-color: #2a2a2a;
+            border-color: #3f3f46;
+        }
+        .input-dark:focus {
+            border-color: #a855f7;
+            ring-color: #a855f7;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex justify-center">
+<!-- Mobile Container (Simulating iOS Phone Frame) -->
+<div class="relative w-full max-w-[430px] min-h-screen bg-background-light dark:bg-background-dark flex flex-col shadow-2xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Secure Checkout</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">lock</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 py-2">
+<!-- Summary Card -->
+<div class="mb-6 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-lg bg-white dark:bg-[#2a2a2a] overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Professional cleaning service representative holding equipment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvUvJf2noE_O3OahfBP2szTgCgb1Z7BDj1lvwTEnJhFc53EFwCLhpHAyXTDWtBDsxFJ8wxV2OSkSehnlIV9JVbp6HVfU029biKvtZzk0yC7JiWeXpsKgSSk57JzQNah-QwYdJE7w41avqGbWdHkd24f7VGDEObO3ogcukpjPN2MM4xRdupo0Hk0b-kQJ9cI0lNWtFyKwX9ap0vFwQH8yLcexW5X4RmNbka9GssXYV2HPi1P7sH1V0lAOV05L8F8kD3TVFu0k1OU0LH");'>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Deep Clean - 3 Bedroom House</p>
+<div class="flex items-end gap-3 justify-between mt-1">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-[#ae90cb] text-sm font-normal leading-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 24, 2023 @ 10:00 AM
+                                </p>
+<p class="text-slate-900 dark:text-white text-xl font-bold leading-normal mt-1">Total: $150.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header: Express Checkout -->
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-2">Express Checkout</h3>
+<!-- Quick Pay Items -->
+<div class="space-y-2 mb-6">
+<!-- Apple Pay -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#2a2a2a] px-4 min-h-[64px] justify-between rounded-xl shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-video bg-contain h-6 w-10 shrink-0" data-alt="Apple Pay logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMjVGZBEHcP4dvQUf64qTFM6boCU0PagiXLBvsNtEw3h0a2zmN26FZrzZ-cTNjCvr4XLJsmgn44cQ-VTgx63iELqSmmA9N2tVupV0lxw64VPlvS2p_epYdV-k09Zwc3ZzWc1GjXiUC03dnhhZDtOelh0gyEF8FOwf0CImhX_G_YZXsYFpp4Peu8687fClNVnj8xFMR-QrV5j6qRpicYzWluooyw5xmUPjTyiDi-YXALyWhsbMLjCI1SiBUUjtCKJicd8xjnUg_uYtb");'></div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Apple Pay</p>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center">
+<input checked="" class="h-6 w-6 rounded-full border-slate-300 dark:border-[#4d3168] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 focus:outline-none" name="payment_method" type="radio"/>
+</div>
+</div>
+</div>
+<!-- PayPal -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#2a2a2a] px-4 min-h-[64px] justify-between rounded-xl shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-video bg-contain h-6 w-10 shrink-0" data-alt="PayPal logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFMYaVTC0AGKpynFHhXAlIBIiQSMnf0E0o-0S-2HWhlDF7Q7G-O-I4Zw9jJXPwdEgKM8ItUYz8Xr0ZwjlNMn8J9ss48NSS9fFq8JYY_hqL7J4GZfWA9EBdHZV7ntQADeKCxKA6OX0skp6t0s_n2KulnABx6rR9U4wfVzcKvhp5DSAr5Jc_Sjo9tMyuSHuqhakoff_upE-SEoiqOzxGGqaxbK5obY4NRTCf-JbDdKAUrBSU2WGhNgfLdiFc_2S-QVIAeE2LL35Wy4Nb");'></div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">PayPal</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-[#362249] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input class="invisible absolute" name="payment_method" type="radio"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Credit Card Form -->
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-2">Credit Card Information</h3>
+<div class="space-y-4 mb-10">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-slate-500 dark:text-slate-400">Cardholder Name</label>
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-[#2a2a2a] border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-slate-500 dark:text-slate-400">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-[#2a2a2a] border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-3 text-slate-400">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-slate-500 dark:text-slate-400">Expiry (MM/YY)</label>
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-[#2a2a2a] border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-slate-500 dark:text-slate-400">CVV</label>
+<div class="relative">
+<input class="w-full rounded-lg h-12 px-4 bg-white dark:bg-[#2a2a2a] border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="123" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-3 text-slate-400 cursor-pointer" title="Help">help_outline</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="flex justify-center items-center gap-6 opacity-60 mb-8">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+<span class="text-xs font-semibold">SSL ENCRYPTED</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">shield_with_heart</span>
+<span class="text-xs font-semibold">SECURE STRIPE</span>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<footer class="sticky bottom-0 bg-background-light dark:bg-background-dark p-4 pt-2 border-t border-slate-200 dark:border-slate-800 ios-blur">
+<p class="text-center text-[10px] text-slate-400 dark:text-slate-500 mb-4 px-4 uppercase tracking-widest font-bold">
+                By tapping confirm, you agree to the MAID 2 HUSTLE terms of service.
+            </p>
+<button class="btn-gradient w-full h-14 rounded-xl text-white font-bold text-lg shadow-[0_8px_30px_rgb(168,85,247,0.3)] flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span>Pay &amp; Confirm Booking</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="h-6"></div> <!-- Bottom safe area spacing -->
+</footer>
+</div>
+</body></html>

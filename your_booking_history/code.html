@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Booking History - MAID 2 HUSTLE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06f906",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#000000",
+                        "card-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<div class="max-w-md mx-auto flex flex-col min-h-screen relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur pt-12 pb-4 px-4 border-b border-gray-200 dark:border-white/10">
+<div class="flex items-center justify-between">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Your Booking History</h1>
+</div>
+</header>
+<!-- Tabs -->
+<nav class="bg-background-light dark:bg-background-dark px-4 pt-4">
+<div class="flex p-1 bg-gray-100 dark:bg-card-dark rounded-xl">
+<button class="flex-1 py-2 text-sm font-semibold rounded-lg bg-white dark:bg-primary text-black shadow-sm transition-all">
+                    Upcoming
+                </button>
+<button class="flex-1 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white transition-all">
+                    Past
+                </button>
+</div>
+</nav>
+<!-- Scrollable Content -->
+<main class="flex-1 p-4 space-y-4">
+<!-- Upcoming Card 1 -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-white/5">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl @xl:rounded-l-xl @xl:rounded-tr-none" data-alt="Modern bathroom interior with plumbing tools" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlO7XAdp3JrroQaprYW-IZPwTMO-HHPYAcfZ5qCpL44NSp5PkF5ft_0h0ESL9CmZYRDUDjtlcED_fQ7TlCKXiNKug5q1SYs60HW-GLJ-HiX0FoEVlmVfV3MkX2qiLyBfxL70Esuh4ZKpE8uHDb4SL1kVaFVwmbXj2VvtZYZ6tbQso9oOMvsB_MZ46Nxz1945EcBo7va0dEI7757o-gklawlfKOsMQZ8RqPjcnnT0WoA36GGtao-Dg2kOqEgNYydEPYGxwkRpalsJGp");'>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-400 tracking-wide uppercase">
+                                Confirmed
+                            </span>
+<span class="text-xs text-gray-400 font-medium">#BK-9021</span>
+</div>
+<h3 class="text-black dark:text-white text-lg font-bold leading-tight">Plumbing Repair</h3>
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined text-sm">person</span>
+<p class="text-sm font-medium">John Smith</p>
+</div>
+<div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<p class="text-sm font-medium">Oct 24, 10:00 AM</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-sm font-bold border border-transparent hover:border-primary/50 transition-all">
+<span class="truncate">Manage Booking</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Card 2 -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-white/5">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl @xl:rounded-l-xl @xl:rounded-tr-none" data-alt="Living room cleaning service professional equipment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY01s_f5scpHg49wGn889my0uqr4NrEGP-LMZ_N8frtsZB_fGppOaLsv5ktPGB56dr21ssx3egPV32bLtmHlOU9tvusAdl_XImsRn6kB7q3rGwQYvQtbYmd05Le29mUE30dWjMRZI7disoDtMJzwhQ6lTnIApNNzgTvxW5jlOcZQHF_b-h8aI2tbTQ02WFA_va7cbgCdGAjXOcDOvg2BypB1gH6qJv8ldJu5-3Y4IPCb9M4jVa0qtkgf_7NskiNIYXPYwJTYWE2q_p");'>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400 tracking-wide uppercase">
+                                Pending
+                            </span>
+<span class="text-xs text-gray-400 font-medium">#BK-9045</span>
+</div>
+<h3 class="text-black dark:text-white text-lg font-bold leading-tight">House Deep Cleaning</h3>
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined text-sm">person</span>
+<p class="text-sm font-medium">Sarah Jenkins</p>
+</div>
+<div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<p class="text-sm font-medium">Oct 28, 02:00 PM</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white text-sm font-bold border border-transparent hover:border-primary/50 transition-all">
+<span class="truncate">Manage Booking</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Past History Section Divider -->
+<div class="px-4 py-2">
+<h4 class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-500">Recent Past Bookings</h4>
+</div>
+<!-- Past Card 1 -->
+<div class="p-4 @container opacity-90">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-sm bg-white dark:bg-card-dark border border-gray-100 dark:border-white/5">
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-400 tracking-wide uppercase">
+                                Completed
+                            </span>
+<span class="text-xs text-gray-400 font-medium">#BK-8832</span>
+</div>
+<p class="text-black dark:text-white text-lg font-bold leading-tight">Kitchen Maintenance</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal">Elite Wash Co.</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs font-normal">Oct 15, 09:00 AM</p>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-black text-sm font-bold shadow-[0_0_15px_rgba(6,249,6,0.2)] hover:scale-[1.02] transition-transform">
+<span class="truncate">Rebook</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Past Card 2 -->
+<div class="p-4 @container opacity-90">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-sm bg-white dark:bg-card-dark border border-gray-100 dark:border-white/5">
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<div class="flex justify-between items-start mb-1">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-400 tracking-wide uppercase">
+                                Completed
+                            </span>
+<span class="text-xs text-gray-400 font-medium">#BK-8721</span>
+</div>
+<p class="text-black dark:text-white text-lg font-bold leading-tight">Garden Landscaping</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal">Green Thumb Inc.</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs font-normal">Oct 10, 11:30 AM</p>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-black text-sm font-bold shadow-[0_0_15px_rgba(6,249,6,0.2)] hover:scale-[1.02] transition-transform">
+<span class="truncate">Rebook</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<footer class="sticky bottom-0 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-t border-gray-200 dark:border-white/10 pb-8 pt-2">
+<div class="flex justify-around items-center">
+<button class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1">calendar_month</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</footer>
+<!-- Safe Area Spacer -->
+<div class="h-5 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAID 2 HUSTLE - Help Article Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f13ec",
+                        "accent-cyan": "#06b6d4",
+                        "background-dark": "#000000",
+                        "card-bg": "#121212",
+                        "gray-300": "#d1d5db",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #7f13ec 0%, #06b6d4 100%);
+        }
+        .text-gradient-brand {
+            background: linear-gradient(135deg, #7f13ec 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        article h2 {
+            @apply text-white text-xl font-bold mt-8 mb-4;
+        }
+        article p {
+            @apply text-gray-300 leading-relaxed mb-4;
+        }
+        article ul {
+            @apply list-disc pl-5 mb-6 text-gray-300 space-y-2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white min-h-screen">
+<header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
+<div class="flex items-center px-4 py-4 justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center">
+<span class="material-symbols-outlined text-white">arrow_back_ios</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Help Center</h1>
+</div>
+<button class="flex items-center justify-center">
+<span class="material-symbols-outlined text-white">share</span>
+</button>
+</div>
+</header>
+<main class="px-5 py-8 max-w-2xl mx-auto pb-32">
+<div class="mb-8">
+<nav class="flex items-center gap-2 text-xs font-medium text-gray-500 mb-4 uppercase tracking-widest">
+<span>Bookings</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Payments</span>
+</nav>
+<h1 class="text-3xl font-extrabold text-white leading-tight">How our payment protection works</h1>
+<div class="flex items-center gap-3 mt-6 text-sm text-gray-400">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold">M2H</div>
+<div>
+<p class="text-white font-medium">Updated 2 days ago</p>
+<p class="text-xs">4 min read</p>
+</div>
+</div>
+</div>
+<article class="prose prose-invert">
+<p>At MAID 2 HUSTLE, your security is our top priority. We use a secure escrow-style payment system to ensure that both homeowners and service providers are protected throughout the entire booking process.</p>
+<h2>The Booking Process</h2>
+<p>When you book a service, your payment is processed immediately but held securely. We do not release the funds to the service provider until the job has been completed and marked as finished in the app.</p>
+<ul>
+<li><strong>Secure Checkout:</strong> All transactions are encrypted using industry-standard SSL technology.</li>
+<li><strong>Hold Period:</strong> Funds are safely held while the service is in progress.</li>
+<li><strong>Completion:</strong> Payment is released automatically 24 hours after service completion unless a dispute is filed.</li>
+</ul>
+<h2>Cancellation &amp; Refunds</h2>
+<p>We understand that plans change. Our cancellation policy is designed to be fair to both parties. If you cancel more than 24 hours before your scheduled service, you will receive a full refund minus a small processing fee.</p>
+<div class="my-8 p-4 bg-card-bg rounded-xl border border-white/5">
+<p class="text-white font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-cyan">info</span>
+                    Pro Tip
+                </p>
+<p class="text-sm text-gray-300 mb-0">Always communicate through the MAID 2 HUSTLE messaging system to ensure your interactions are documented in case of a dispute.</p>
+</div>
+<h2>Dispute Resolution</h2>
+<p>In the rare event that a service does not meet the agreed-upon standards, you can open a dispute through the 'Bookings' tab. Our support team will review the photos and communication history to reach a fair resolution within 48 hours.</p>
+</article>
+<div class="mt-16 pt-8 border-t border-white/10 text-center">
+<h3 class="text-lg font-bold text-white mb-6">Was this article helpful?</h3>
+<div class="flex justify-center gap-4">
+<button class="flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-sm">thumb_up</span>
+<span class="font-semibold">Yes</span>
+</button>
+<button class="flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-sm">thumb_down</span>
+<span class="font-semibold">No</span>
+</button>
+</div>
+<p class="text-gray-500 text-sm mt-6">842 people found this helpful</p>
+</div>
+<div class="mt-16 p-8 rounded-3xl bg-card-bg border border-white/5 text-center">
+<div class="w-16 h-16 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl text-white">support_agent</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Still need help?</h3>
+<p class="text-gray-400 text-sm mb-8">Can't find what you're looking for? Our support team is available 24/7 to assist you.</p>
+<button class="w-full bg-gradient-brand text-white py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 active:scale-95 transition-transform">
+                Contact Support
+            </button>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 h-8 bg-black pointer-events-none">
+<div class="w-32 h-1 bg-white/20 rounded-full mx-auto mt-4"></div>
+</div>
+
+</body></html>
