@@ -24,6 +24,7 @@ export function AppShell({
   const links: { to: string; label: string; active: boolean }[] = [
     { to: "/", label: "Home", active: path === "/" },
     { to: "/explore", label: "Explore Services", active: path.startsWith("/explore") || path.startsWith("/service/") },
+    { to: "/categories", label: "Browse by Category", active: path === "/categories" },
     { to: "/bookings", label: "My Bookings", active: path.startsWith("/bookings") },
     { to: "/refer", label: "Refer & Earn", active: path === "/refer" },
     { to: "/join-provider", label: "Become a Provider", active: path === "/join-provider" },
@@ -358,11 +359,11 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <p className="font-bold mb-3">Popular Categories</p>
+          <p className="font-bold mb-3">Browse Categories</p>
           <ul className="space-y-2 text-sm text-ink/60">
             {FOOTER_CATS.map((c) => (
               <li key={c}>
-                <button onClick={() => navigate(`/explore?category=${encodeURIComponent(c)}`)} className="hover:text-primary transition-colors">
+                <button onClick={() => navigate("/categories")} className="hover:text-primary transition-colors">
                   {c}
                 </button>
               </li>

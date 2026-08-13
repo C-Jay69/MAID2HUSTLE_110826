@@ -21,6 +21,7 @@ import { TrackingPage } from "@/pages/TrackingPage";
 import { ReferPage } from "@/pages/ReferPage";
 import { RatePage } from "@/pages/RatePage";
 import { ProfilePage, MenuPage } from "@/pages/ProfilePage";
+import { CategoryPage } from "@/pages/CategoryPage";
 import { AboutPage, ContactPage, HelpPage, BlogPage } from "@/pages/ContentPages";
 import "./index.css";
 
@@ -117,6 +118,9 @@ function Shell() {
       break;
     case path === "/about":
       content = <AboutPage />;
+      break;
+    case path === "/categories":
+      content = <CategoryPage />;
       break;
     case path === "/contact":
       content = <ContactPage />;

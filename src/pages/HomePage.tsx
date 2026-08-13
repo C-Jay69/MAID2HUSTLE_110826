@@ -149,12 +149,17 @@ export function HomePage() {
 
       {/* Browse by Category */}
       <section className="mb-10">
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight mb-4">Browse by Category</h2>
+        <div className="flex items-end justify-between mb-4">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight">Browse by Category</h2>
+          <button onClick={() => navigate("/categories")} className="text-primary text-sm font-bold uppercase tracking-wider hover:underline">
+            View All
+          </button>
+        </div>
         <div className="flex flex-wrap gap-2.5">
           {CATEGORIES.map((c) => (
             <button
               key={c.label}
-              onClick={() => navigate(`/explore?category=${encodeURIComponent(c.label)}`)}
+              onClick={() => navigate("/categories")}
               className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-line hover:border-primary/60 hover:text-primary transition-colors text-sm font-semibold"
             >
               <Icon name={c.icon} className="text-primary text-[18px]" />
