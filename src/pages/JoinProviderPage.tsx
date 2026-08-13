@@ -56,11 +56,11 @@ export function JoinProviderPage() {
 
   if (existing) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <div className="min-h-screen bg-page flex flex-col items-center justify-center px-6 text-center">
         <div className="size-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-6">
-          <Icon name="verified" className="text-emerald-400 text-[40px]" filled />
+          <Icon name="verified" className="text-emerald-500 text-[40px]" filled />
         </div>
-        <h1 className="text-white text-2xl font-black mb-2">Application Submitted!</h1>
+        <h1 className="text-ink text-2xl font-black mb-2">Application Submitted!</h1>
         <p className="text-gray-400 mb-8">
           {existing.approved
             ? "Your provider profile is live. Head to your dashboard to manage jobs."
@@ -77,7 +77,7 @@ export function JoinProviderPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto min-h-screen flex flex-col">
+    <div className="max-w-3xl mx-auto flex flex-col">
       <TopBar title="Maid 2 Hustle" subtitle="Provider Portal" back="/" />
 
       {/* Step indicators */}
@@ -88,7 +88,7 @@ export function JoinProviderPage() {
       </div>
 
       <div className="px-4">
-        <h2 className="text-white tracking-tight text-[28px] font-bold leading-tight pb-1 pt-2">Let's get started</h2>
+        <h2 className="text-ink tracking-tight text-[28px] font-bold leading-tight pb-1 pt-2">Let's get started</h2>
         <p className="text-gray-400 text-base pb-6">Step {step}: {step === 1 ? "Personal info" : step === 2 ? "Professional details" : "Review & submit"}</p>
       </div>
 
@@ -134,7 +134,7 @@ export function JoinProviderPage() {
               onChange={(e) => setForm({ ...form, bio: e.target.value })}
               rows={3}
               placeholder="Tell customers about your experience and specialties..."
-              className="w-full rounded-xl bg-[#111111] border border-gray-800 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+              className="w-full rounded-xl bg-white border border-line px-4 py-3 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary resize-none"
             />
           </div>
           <div className="border-2 border-dashed border-gray-800 rounded-xl p-8 flex flex-col items-center justify-center text-center gap-2 cursor-pointer">
@@ -198,7 +198,7 @@ function Input({ label, value, onChange, placeholder, type = "text" }: { label: 
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full h-14 rounded-xl bg-[#111111] border border-gray-800 px-4 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-primary"
+        className="w-full h-14 rounded-xl bg-white border border-line px-4 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary"
       />
     </label>
   );
@@ -208,7 +208,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between gap-4">
       <span className="text-gray-400 text-sm">{label}</span>
-      <span className="text-white text-sm font-medium text-right">{value}</span>
+      <span className="text-ink text-sm font-medium text-right">{value}</span>
     </div>
   );
 }

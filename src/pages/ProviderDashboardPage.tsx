@@ -20,17 +20,16 @@ export function ProviderDashboardPage() {
   const earnings = useMemo(() => completed.reduce((sum, b) => sum + b.total, 0), [completed]);
 
   return (
-    <div className="max-w-md mx-auto">
-      <TopBar transparent />
+    <div className="max-w-3xl mx-auto">
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-black/80 backdrop-blur-md border-b border-white/10 -mt-16 pt-16">
+      <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-line">
         <div className="flex items-center p-4 justify-between">
           <div className="flex flex-col">
-            <span className="text-xs text-gray-400">Welcome back,</span>
+            <span className="text-xs text-ink/50">Welcome back,</span>
             <h1 className="text-lg font-bold leading-tight">{user?.name ?? "Provider"}</h1>
           </div>
-          <div className="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1.5 border border-white/10">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-green-400">Online</span>
+          <div className="flex items-center gap-2 bg-page rounded-full px-3 py-1.5 border border-line">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-green-500">Online</span>
             <div className="w-8 h-4 bg-green-500 rounded-full relative">
               <div className="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
             </div>
@@ -42,17 +41,17 @@ export function ProviderDashboardPage() {
         {/* Earnings card */}
         <div className="mt-6">
           <div className="gradient-bg-deep rounded-2xl p-6 shadow-xl shadow-primary/20 relative overflow-hidden">
-            <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute -right-8 -top-8 w-32 h-32 bg-black/5 rounded-full blur-3xl"></div>
             <div className="relative z-10">
-              <p className="text-white/80 text-sm font-medium">Earnings This Week</p>
+              <p className="text-ink/80 text-sm font-medium">Earnings This Week</p>
               <div className="flex items-baseline gap-1 mt-1">
                 <span className="text-3xl font-bold">{currency(earnings || 1248.5)}</span>
-                <span className="text-white/70 text-sm font-medium">+12% vs last week</span>
+                <span className="text-ink/70 text-sm font-medium">+12% vs last week</span>
               </div>
               <div className="mt-6 flex justify-between items-center">
                 <button
                   onClick={() => (window.location.hash = "/provider/earnings")}
-                  className="bg-white/20 hover:bg-white/30 transition-colors px-4 py-2 rounded-lg text-xs font-bold backdrop-blur-md"
+                  className="bg-black/10 hover:bg-black/20 transition-colors px-4 py-2 rounded-lg text-xs font-bold backdrop-blur-md"
                 >
                   View Breakdown
                 </button>
@@ -132,7 +131,7 @@ export function ProviderDashboardPage() {
                   )}
                   <button
                     onClick={() => (window.location.hash = `/tracking?booking=${b.id}`)}
-                    className="flex-1 bg-white/10 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 border border-white/10 active:scale-[0.98] transition-transform"
+                    className="flex-1 bg-page text-ink font-bold py-3 rounded-xl flex items-center justify-center gap-2 border border-line active:scale-[0.98] transition-transform"
                   >
                     <Icon name="near_me" className="text-sm" /> Navigate
                   </button>
@@ -142,7 +141,7 @@ export function ProviderDashboardPage() {
                         await api.updateBookingStatus(b.id, "completed").catch(() => {});
                         window.location.reload();
                       }}
-                      className="flex-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold py-3 rounded-xl active:scale-[0.98] transition-transform"
+                      className="flex-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-bold py-3 rounded-xl active:scale-[0.98] transition-transform"
                     >
                       Mark Complete
                     </button>

@@ -37,7 +37,6 @@ function Shell() {
   if (path === "/register") return <AuthPage mode="register" />;
   if (path === "/success") return <SuccessPage />;
   if (path === "/tracking") return <TrackingPage />;
-  if (path === "/join-provider") return <JoinProviderPage />;
 
   const role = user?.role === "admin" ? "admin" : user?.role === "vendor" ? "provider" : "customer";
 
@@ -69,6 +68,10 @@ function Shell() {
       break;
     case path.startsWith("/bookings"):
       content = <BookingsPage />;
+      break;
+    case path === "/join-provider":
+      content = <JoinProviderPage />;
+      bottomNav = "none";
       break;
     case path.startsWith("/profile"):
       content = <ProfilePage />;

@@ -92,9 +92,13 @@ function listServices(req: Request) {
   const category = url.searchParams.get("category");
   const q = url.searchParams.get("q")?.toLowerCase();
   const sort = url.searchParams.get("sort");
+  const popular = url.searchParams.get("popular");
 
   let sql = "SELECT * FROM services WHERE 1=1";
   const params: (string | number)[] = [];
+  if (popular === "1") {
+    sql += " AND popular = 1";
+  }
   if (category && category !== "All") {
     sql += " AND category = ?";
     params.push(category);

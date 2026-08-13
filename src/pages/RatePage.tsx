@@ -36,13 +36,13 @@ export function RatePage() {
   };
 
   return (
-    <div className="max-w-md mx-auto min-h-screen pb-32">
+    <div className="mx-auto max-w-2xl pb-32">
       <TopBar title="Rate Your Service" back="/bookings" right={<Icon name="more_horiz" />} />
 
       <div className="px-5 pt-4">
         {/* Provider header */}
-        <div className="flex items-center gap-4 bg-[#2a2a2a] rounded-xl p-4 border border-white/5">
-          <div className="size-14 rounded-full gradient-bg flex items-center justify-center text-white text-2xl font-black">
+        <div className="flex items-center gap-4 bg-white rounded-xl p-4 border border-line">
+          <div className="size-14 rounded-full gradient-bg flex items-center justify-center text-ink text-2xl font-black">
             {booking?.vendor_name?.[0] ?? "M"}
           </div>
           <div>
@@ -58,7 +58,7 @@ export function RatePage() {
             <div className="size-20 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
               <Icon name="check_circle" className="text-emerald-400 text-[44px]" filled />
             </div>
-            <h2 className="text-white text-2xl font-black mb-2">Thank you!</h2>
+            <h2 className="text-ink text-2xl font-black mb-2">Thank you!</h2>
             <p className="text-gray-400">Your feedback helps our community hustle better.</p>
           </div>
         ) : (
@@ -86,7 +86,7 @@ export function RatePage() {
             </div>
 
             {/* Tags */}
-            <h3 className="text-white font-bold mb-3">What went well?</h3>
+            <h3 className="text-ink font-bold mb-3">What went well?</h3>
             <div className="flex flex-wrap gap-2 mb-6">
               {TAGS.map((t) => (
                 <button
@@ -103,24 +103,24 @@ export function RatePage() {
             </div>
 
             {/* Comment */}
-            <h3 className="text-white font-bold mb-3">Tell us more</h3>
+            <h3 className="text-ink font-bold mb-3">Tell us more</h3>
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={4}
               placeholder="Share details about your experience..."
-              className="w-full rounded-xl bg-[#2a2a2a] border border-white/10 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+              className="w-full rounded-xl bg-white border border-line px-4 py-3 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary resize-none"
             />
           </>
         )}
       </div>
 
       {!done && (
-        <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 pb-8 bg-black/90 backdrop-blur-xl border-t border-white/10 z-30">
+        <div className="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-white/90 backdrop-blur-xl border-t border-line z-30">
           <button
             onClick={submit}
             disabled={submitting}
-            className="w-full gradient-bg h-14 rounded-xl text-white font-bold text-lg shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform disabled:opacity-50"
+            className="w-full gradient-bg h-14 rounded-xl text-ink font-bold text-lg shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform disabled:opacity-50"
           >
             {submitting ? "Submitting..." : "Submit Review"}
           </button>

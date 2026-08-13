@@ -26,7 +26,7 @@ export function ReferPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-3xl mx-auto">
       <TopBar title="Refer a Friend" back="/profile" />
 
       <div className="px-5 pt-4">
@@ -66,7 +66,7 @@ export function ReferPage() {
         </div>
 
         {/* How it works */}
-        <h3 className="text-white text-lg font-bold mb-4">How it works</h3>
+        <h3 className="text-ink text-lg font-bold mb-4">How it works</h3>
         <div className="space-y-4">
           {[
             { n: 1, title: "Share your code", desc: "Send your unique code to friends who need home services." },
@@ -89,11 +89,11 @@ export function ReferPage() {
         <div className="mt-8 bg-[#1e132b] rounded-2xl border border-white/5 p-5 grid grid-cols-2 gap-4">
           <div>
             <p className="text-gray-400 text-xs font-medium">Friends Joined</p>
-            <p className="text-white text-3xl font-black">{ref?.friends_joined ?? 0}</p>
+            <p className="text-ink text-3xl font-black">{ref?.friends_joined ?? 0}</p>
           </div>
           <div>
             <p className="text-gray-400 text-xs font-medium">Total Earned</p>
-            <p className="text-white text-3xl font-black">${ref?.total_earned ?? 0}</p>
+            <p className="text-ink text-3xl font-black">${ref?.total_earned ?? 0}</p>
           </div>
         </div>
       </div>

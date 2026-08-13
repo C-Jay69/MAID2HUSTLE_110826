@@ -4,14 +4,14 @@ import { TopBar, BrandHeader } from "@/components/layout";
 
 export function AboutPage() {
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-3xl mx-auto">
       <BrandHeader />
       <div className="px-5 py-8">
         <h1 className="text-3xl font-black leading-tight mb-3">
           Empowering the <span className="gradient-text">Modern Hustle</span>
         </h1>
-        <div className="aspect-[4/3] gradient-bg-deep rounded-2xl border border-white/10 flex items-center justify-center mb-8 opacity-60">
-          <Icon name="groups" className="text-white text-[80px]" />
+        <div className="aspect-[4/3] gradient-bg-deep rounded-2xl border border-line flex items-center justify-center mb-8">
+          <Icon name="groups" className="text-ink text-[80px]" />
         </div>
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-3 text-primary">The Story</h2>
@@ -31,7 +31,7 @@ export function AboutPage() {
           ].map((v) => (
             <div key={v.title} className="bg-[#2a2a2a] rounded-xl p-4 border border-white/5 flex gap-4">
               <div className="size-11 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                <Icon name={v.icon} className="text-white text-[22px]" />
+                <Icon name={v.icon} className="text-ink text-[22px]" />
               </div>
               <div>
                 <p className="font-bold">{v.title}</p>
@@ -41,13 +41,13 @@ export function AboutPage() {
           ))}
         </div>
         <div className="mt-8 rounded-2xl gradient-bg p-6 text-center">
-          <h3 className="text-white text-2xl font-black mb-2">Join the Movement</h3>
-          <p className="text-white/80 text-sm mb-5">Whether you need a hand or want to lend one, there's a place for you.</p>
+          <h3 className="text-2xl font-black mb-2">Join the Movement</h3>
+          <p className="text-ink/80 text-sm mb-5">Whether you need a hand or want to lend one, there's a place for you.</p>
           <div className="flex flex-col gap-3">
-            <button onClick={() => (window.location.hash = "/explore")} className="bg-white text-black font-bold py-3 rounded-xl">
+            <button onClick={() => (window.location.hash = "/explore")} className="bg-white text-ink font-bold py-3 rounded-xl shadow-sm">
               Find a Pro
             </button>
-            <button onClick={() => (window.location.hash = "/join-provider")} className="bg-black/20 text-white font-bold py-3 rounded-xl border border-white/20">
+            <button onClick={() => (window.location.hash = "/join-provider")} className="bg-black/10 text-ink font-bold py-3 rounded-xl border border-black/10">
               Become a Partner
             </button>
           </div>
@@ -68,7 +68,7 @@ export function ContactPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-3xl mx-auto">
       <BrandHeader />
       <TopBar title="Get in Touch" back="/" transparent />
       <div className="px-5 py-6">
@@ -93,7 +93,7 @@ export function ContactPage() {
             </div>
             <div>
               <label className="text-gray-400 text-sm block mb-1.5">Message</label>
-              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={5} placeholder="How can we help you hustle?" className="w-full rounded-xl bg-[#111] border border-gray-800 px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-primary resize-none" />
+              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={5} placeholder="How can we help you hustle?" className="w-full rounded-xl bg-white border border-line px-4 py-3 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary resize-none" />
             </div>
             <button type="submit" className="w-full h-14 rounded-xl gradient-bg text-white font-bold text-lg shadow-lg shadow-primary/25">
               Send Message
@@ -139,14 +139,14 @@ export function HelpPage() {
     { q: "How do I report an issue?", a: "Tap Help in the app or email support@maid2hustle.com. Our team responds within 24 hours and disputes are resolved quickly." },
   ];
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-3xl mx-auto">
       <TopBar title="Help Center" back="/profile" />
       <div className="p-4">
         <div className="rounded-2xl gradient-bg p-6 mb-6">
-          <h2 className="text-white text-xl font-black mb-1">How can we help?</h2>
-          <div className="mt-4 bg-black/20 rounded-xl h-12 flex items-center gap-2 px-4">
-            <Icon name="search" className="text-white/70" />
-            <span className="text-white/60 text-sm">Search help topics...</span>
+          <h2 className="text-xl font-black mb-1">How can we help?</h2>
+          <div className="mt-4 bg-white/30 rounded-xl h-12 flex items-center gap-2 px-4">
+            <Icon name="search" className="text-ink/70" />
+            <span className="text-ink/60 text-sm">Search help topics...</span>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 mb-6">
@@ -159,7 +159,7 @@ export function HelpPage() {
             </button>
           ))}
         </div>
-        <h3 className="text-white font-bold mb-3">Top Questions</h3>
+        <h3 className="text-ink font-bold mb-3">Top Questions</h3>
         <div className="space-y-2">
           {faqs.map((f, i) => (
             <div key={i} className="bg-[#2a2a2a] rounded-xl border border-white/5 overflow-hidden">
@@ -173,8 +173,8 @@ export function HelpPage() {
         </div>
         <div className="mt-6 rounded-2xl gradient-bg p-5 text-center">
           <p className="font-black text-lg">Still need help?</p>
-          <p className="text-white/80 text-sm mb-3">Our support team is here 24/7.</p>
-          <button onClick={() => (window.location.hash = "/contact")} className="bg-white text-black font-bold py-3 px-6 rounded-xl">
+          <p className="text-ink/80 text-sm mb-3">Our support team is here 24/7.</p>
+          <button onClick={() => (window.location.hash = "/contact")} className="bg-white text-ink font-bold py-3 px-6 rounded-xl shadow-sm">
             Contact Support
           </button>
         </div>
@@ -192,13 +192,13 @@ export function BlogPage() {
     { id: 4, icon: "verified_user", title: "What Our Trust & Safety Guarantee Really Covers", tag: "Safety", read: "2 min" },
   ];
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-3xl mx-auto">
       <TopBar title="The Hustle Blog" back="/" />
       <div className="p-4 space-y-4">
         {posts.map((p) => (
-          <button key={p.id} className="w-full text-left bg-[#2a2a2a] rounded-xl border border-white/5 overflow-hidden hover:border-primary/40 transition-colors">
+          <button key={p.id} className="w-full text-left bg-white rounded-xl border border-line overflow-hidden hover:border-primary/40 transition-colors">
             <div className="h-28 gradient-bg-deep flex items-center justify-center">
-              <Icon name={p.icon} className="text-white text-[44px]" />
+              <Icon name={p.icon} className="text-ink text-[44px]" />
             </div>
             <div className="p-4">
               <div className="flex items-center gap-2 mb-1">

@@ -43,52 +43,54 @@
 
 :root {
   --radius: 0.75rem;
-  /* Brand palette — dark mode by default (matches UI mockups) */
-  --primary: #a855f7;
-  --primary-strong: #7f13ec;
-  --secondary: #06b6d4;
-  --card-dark: #2a2a2a;
-  --surface-dark: #1f2937;
-  --background-dark: #000000;
-  --background-dark-soft: #191022;
+  /* Brand palette — light, bright & breezy */
+  --primary: #00a34c;
+  --primary-strong: #00893f;
+  --secondary: #00b3a6;
+  --secondary-bright: #c0ffff;
+  --cream: #fffdd0;
+  --ink: #0b241c;
+  --page: #eef6f2;
+  --line: #d9e7e0;
 
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #2a2a2a;
-  --card-foreground: #ffffff;
-  --popover: #1f2937;
-  --popover-foreground: #ffffff;
+  --background: #eef6f2;
+  --foreground: #0b241c;
+  --card: #ffffff;
+  --card-foreground: #0b241c;
+  --popover: #ffffff;
+  --popover-foreground: #0b241c;
   --primary-foreground: #ffffff;
-  --secondary-foreground: #022a33;
-  --muted: #1f2937;
-  --muted-foreground: #9ca3af;
-  --accent: #1f2937;
-  --accent-foreground: #ffffff;
-  --destructive: #ef4444;
-  --border: #ffffff1a;
-  --input: #ffffff26;
-  --ring: #a855f7;
-  --chart-1: #a855f7;
-  --chart-2: #06b6d4;
-  --chart-3: #22d3ee;
-  --chart-4: #c084fc;
-  --chart-5: #60a5fa;
-  --sidebar: #111111;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #a855f7;
+  --secondary-foreground: #04322c;
+  --muted: #eef3f0;
+  --muted-foreground: #5d6f67;
+  --accent: #e4f7ef;
+  --accent-foreground: #0b241c;
+  --destructive: #e11d48;
+  --border: #d9e7e0;
+  --input: #d9e7e0;
+  --ring: #00a34c;
+  --chart-1: #00a34c;
+  --chart-2: #00b3a6;
+  --chart-3: #7cd6ff;
+  --chart-4: #fff0a8;
+  --chart-5: #b7f7d2;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b241c;
+  --sidebar-primary: #00a34c;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1f2937;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #ffffff1a;
-  --sidebar-ring: #a855f7;
+  --sidebar-accent: #e4f7ef;
+  --sidebar-accent-foreground: #0b241c;
+  --sidebar-border: #d9e7e0;
+  --sidebar-ring: #00a34c;
 }
 
 @theme inline {
   --color-primary-strong: var(--primary-strong);
-  --color-card-dark: var(--card-dark);
-  --color-surface-dark: var(--surface-dark);
-  --color-background-dark: var(--background-dark);
-  --color-background-dark-soft: var(--background-dark-soft);
+  --color-secondary-bright: var(--secondary-bright);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-page: var(--page);
+  --color-line: var(--line);
 }
 
 @layer base {
@@ -96,40 +98,42 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply bg-black;
+    @apply bg-page;
   }
   body {
-    @apply bg-black text-white font-sans antialiased;
+    @apply bg-page text-ink font-sans antialiased;
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
   }
 }
 
-/* Brand helpers (used across the static UI mockups) */
+/* Brand helpers — bright green/teal on a light canvas */
 .gradient-text {
-  background: linear-gradient(to right, #a855f7, #06b6d4);
+  background: linear-gradient(90deg, #009a4a 0%, #00a39a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-white {
-  background: linear-gradient(to right, #ffffff, #a855f7);
+  background: linear-gradient(to right, #ffffff, #b7ffdd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #00c853 0%, #00b3a6 100%);
+  color: #053326;
 }
 
 .gradient-bg-deep {
-  background: linear-gradient(90deg, #7f13ec 0%, #06b6d4 100%);
+  background: linear-gradient(90deg, #00a34c 0%, #00a3a0 100%);
+  color: #053326;
 }
 
 .glass-header {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -149,20 +153,132 @@
 
 .auth-input {
   width: 100%;
-  height: 3.5rem;
+  height: 3.25rem;
   border-radius: 0.75rem;
-  background-color: #111111;
-  border: 1px solid #1f2937;
+  background-color: #ffffff;
+  border: 1px solid var(--line);
   padding: 0 1rem;
-  color: #fff;
+  color: var(--ink);
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .auth-input:focus {
-  border-color: #a855f7;
-  box-shadow: 0 0 0 1px #a855f7;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 163, 76, 0.15);
 }
 .auth-input::placeholder {
-  color: #6b7280;
+  color: #8fa29a;
+}
+
+/* ------------------------------------------------------------------
+   Legacy dark-theme utility remaps.
+   The mockup pages were built for a dark UI. These unlayered rules
+   (higher priority than Tailwind's layered utilities) translate the
+   recurring dark classes into the light, bright palette so pages
+   inherit the new look without touching every hardcoded class.
+------------------------------------------------------------------- */
+
+/* dark surfaces -> light cards/surfaces */
+.bg-\[\#2a2a2a\] {
+  background-color: #ffffff;
+}
+.bg-\[\#2a2a2a\]\/50 {
+  background-color: #f2f8f4;
+}
+.bg-\[\#2a2a2a\]\/90 {
+  background-color: #f7fbf9;
+}
+.bg-\[\#1f2937\] {
+  background-color: #ffffff;
+}
+.bg-\[\#1e132b\] {
+  background-color: #ecfbf4;
+}
+.bg-\[\#111\],
+.bg-\[\#111111\],
+.bg-\[\#121212\] {
+  background-color: #ffffff;
+}
+.bg-\[\#0b0712\] {
+  background-color: #e7f6ef;
+}
+.bg-\[\#191022\] {
+  background-color: #e7f6ef;
+}
+.bg-slate-800 {
+  background-color: #e2eee8;
+}
+.bg-gray-800,
+.bg-gray-700 {
+  background-color: #e7f0ec;
+}
+.bg-surface-dark\/95 {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* translucent black overlays -> light glass */
+.bg-black\/90 {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+.bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.86);
+}
+.bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* subtle white fills -> subtle ink fills */
+.bg-white\/5 {
+  background-color: rgba(11, 36, 28, 0.05);
+}
+.bg-white\/10 {
+  background-color: rgba(11, 36, 28, 0.08);
+}
+.hover\:bg-white\/5:hover {
+  background-color: rgba(11, 36, 28, 0.06);
+}
+.hover\:bg-white\/10:hover {
+  background-color: rgba(11, 36, 28, 0.08);
+}
+
+/* white borders -> light line borders */
+.border-white\/5 {
+  border-color: #e4eeea;
+}
+.border-white\/10 {
+  border-color: #d7e5df;
+}
+.border-white\/20 {
+  border-color: #c9dbd3;
+}
+.border-slate-800 {
+  border-color: #d7e4de;
+}
+.border-slate-700 {
+  border-color: #c9d9d1;
+}
+.border-gray-800 {
+  border-color: #d7e4de;
+}
+.border-gray-700 {
+  border-color: #c9d9d1;
+}
+.border-gray-600 {
+  border-color: #b6c9c0;
+}
+
+/* muted text tuned for light surfaces */
+.text-gray-400 {
+  color: #5d6f67;
+}
+.text-gray-300 {
+  color: #6a7b74;
+}
+.text-slate-400 {
+  color: #5d6f67;
+}
+.placeholder\:text-gray-600::placeholder,
+.placeholder\:text-gray-500::placeholder {
+  color: #8fa29a;
 }

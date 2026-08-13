@@ -17,70 +17,68 @@ export function SuccessPage() {
   }, [bookingId]);
 
   return (
-    <div className="relative flex h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-gray-800/20">
-      {/* Top */}
-      <div className="flex items-center bg-black p-4 pb-2 justify-between">
-        <div className="text-white flex size-12 shrink-0 items-center justify-start">
-          <span className="material-symbols-outlined cursor-pointer" onClick={() => (window.location.hash = "/")}>
-            close
+    <div className="min-h-screen bg-page flex flex-col">
+      <header className="flex items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-2.5">
+          <div className="size-9 gradient-bg rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+            <Icon name="bolt" className="text-[22px]" />
+          </div>
+          <span className="text-xl font-black tracking-tight uppercase">
+            Maid <span className="gradient-text">2 Hustle</span>
           </span>
         </div>
-        <h2 className="text-white text-sm font-bold tracking-widest flex-1 text-center pr-12 uppercase">MAID 2 HUSTLE</h2>
-      </div>
+        <button onClick={() => (window.location.hash = "/")} className="size-10 flex items-center justify-center rounded-full hover:bg-primary/10">
+          <Icon name="close" className="text-[24px]" />
+        </button>
+      </header>
 
-      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 pb-16 max-w-xl mx-auto w-full text-center">
         <div className="relative mb-8">
           <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
-          <div className="relative flex items-center justify-center size-24 bg-primary/10 rounded-full border border-primary/30 shadow-[0_0_40px_rgba(168,85,247,0.25)]">
+          <div className="relative flex items-center justify-center size-24 bg-white rounded-full border border-primary/30 shadow-[0_0_40px_rgba(0,163,76,0.3)]">
             <Icon name="check_circle" className="text-primary text-6xl" filled />
           </div>
         </div>
-        <h1 className="text-gradient text-[36px] font-bold leading-tight pb-2 text-transparent" style={{ backgroundImage: "linear-gradient(to bottom right, #a855f7, #c084fc)", WebkitBackgroundClip: "text", backgroundClip: "text" }}>
-          Booking Confirmed!
-        </h1>
-        <p className="text-gray-400 text-sm font-medium tracking-wider mb-8">BOOKING ID: {booking?.booking_ref ?? `BK-${bookingId}`}</p>
+        <h1 className="text-4xl font-black tracking-tight gradient-text pb-2">Booking Confirmed!</h1>
+        <p className="text-ink/50 text-sm font-medium tracking-wider mb-8">BOOKING ID: {booking?.booking_ref ?? `BK-${bookingId}`}</p>
 
         {booking && (
           <div className="w-full mb-10">
-            <div className="flex items-stretch justify-between gap-4 rounded-xl bg-[#121212] border border-gray-800 p-5 shadow-xl text-left">
-              <div className="flex flex-col gap-2 flex-grow">
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-tighter">Service Summary</p>
-                <p className="text-white text-lg font-bold leading-tight">{booking.service_title}</p>
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-2 text-primary/80 text-sm">
+            <div className="rounded-2xl bg-white border border-line p-5 shadow-sm text-left">
+              <div className="flex flex-col gap-2">
+                <p className="text-ink/40 text-xs font-semibold uppercase tracking-tighter">Service Summary</p>
+                <p className="text-ink text-lg font-bold leading-tight">{booking.service_title}</p>
+                <div className="flex flex-col gap-1.5 mt-1">
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
                     <Icon name="calendar_today" className="text-[18px]" />
                     <span>{formatDateTime(booking.date, booking.start_time)}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-primary/80 text-sm">
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
                     <Icon name="person" className="text-[18px]" />
                     <span>{booking.vendor_name} • ${booking.total}</span>
                   </div>
                 </div>
-                {tx && <p className="text-gray-600 text-[10px] uppercase tracking-wider mt-1">Transaction: {tx}</p>}
+                {tx && <p className="text-ink/40 text-[10px] uppercase tracking-wider mt-2">Transaction: {tx}</p>}
               </div>
             </div>
           </div>
         )}
 
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-3 max-w-sm">
           <button
             onClick={() => (window.location.hash = "/bookings")}
-            className="w-full gradient-bg hover:opacity-90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20"
+            className="w-full gradient-bg font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-[0.99]"
           >
             View Booking
           </button>
           <button
-            onClick={() => (window.location.hash = "/tracking")}
-            className="w-full bg-transparent border border-gray-800 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 transition-all"
+            onClick={() => (window.location.hash = `/tracking?booking=${bookingId}`)}
+            className="w-full bg-white border border-line font-semibold py-4 rounded-xl flex items-center justify-center gap-2 hover:border-primary/60 transition-colors"
           >
-            <Icon name="near_me" className="text-[20px]" />
+            <Icon name="near_me" className="text-[20px] text-primary" />
             Track Live Service
           </button>
         </div>
-      </div>
-
-      <div className="p-8 flex justify-center opacity-40">
-        <div className="h-1 w-32 bg-gray-800 rounded-full"></div>
       </div>
     </div>
   );

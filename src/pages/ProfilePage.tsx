@@ -7,7 +7,7 @@ export function ProfilePage() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="max-w-md mx-auto min-h-screen pb-24">
+    <div className="mx-auto max-w-2xl pb-24">
       <TopBar title="Profile" back="/" />
 
       <div className="p-5 flex flex-col items-center pt-6">
@@ -19,7 +19,7 @@ export function ProfilePage() {
             <Icon name="check" className="text-black text-[14px]" filled />
           </div>
         </div>
-        <h1 className="text-white text-2xl font-black mt-3">{user?.name ?? "Guest"}</h1>
+        <h1 className="text-ink text-2xl font-black mt-3">{user?.name ?? "Guest"}</h1>
         <p className="text-gray-400 text-sm">
           {user?.email ?? "Sign in to manage your account"} {user && `• ${user.role}`}
         </p>
@@ -71,7 +71,7 @@ function MenuItem({ icon, label, onClick }: { icon: string; label: string; onCli
 export function MenuPage() {
   const { user } = useAuth();
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="mx-auto max-w-2xl">
       <TopBar title="Menu" back="/" />
       <div className="p-5">
         <div className="flex items-center gap-4 bg-[#2a2a2a] rounded-2xl p-4 border border-white/5 mb-6">
