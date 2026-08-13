@@ -1,32 +1,14 @@
 import { serve } from "bun";
 import index from "./index.html";
+import { seedDatabase } from "./server/seed";
+import { handleApi } from "./server/api";
+
+seedDatabase();
 
 const server = serve({
   routes: {
-    // Serve index.html for all unmatched routes.
+    "/api/*": (req) => handleApi(req),
     "/*": index,
-
-    "/api/hello": {
-      async GET(req) {
-        return Response.json({
-          message: "Hello, world!",
-          method: "GET",
-        });
-      },
-      async PUT(req) {
-        return Response.json({
-          message: "Hello, world!",
-          method: "PUT",
-        });
-      },
-    },
-
-    "/api/hello/:name": async req => {
-      const name = req.params.name;
-      return Response.json({
-        message: `Hello, ${name}!`,
-      });
-    },
   },
 
   development: process.env.NODE_ENV !== "production" && {
@@ -38,4 +20,4 @@ const server = serve({
   },
 });
 
-console.log(`🚀 Server running at ${server.url}`);
+console.log(`🚀 MAID 2 HUSTLE server running at ${server.url}`);
