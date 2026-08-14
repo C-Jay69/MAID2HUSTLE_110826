@@ -1,7 +1,7 @@
 import { db } from "./db";
 import { hashPassword } from "./auth";
 
-type ServiceSeed = { title: string; category: string; description: string; base_price: number; duration_hours: number; icon: string; rating: number; reviews: number; popular: number };
+type ServiceSeed = { title: string; category: string; description: string; base_price: number; duration_hours: number; icon: string; rating: number; reviews: number; popular: number; image?: string };
 
 const CATEGORY_ICON: Record<string, string> = {
   Cleaning: "cleaning_services",
@@ -307,6 +307,12 @@ const FEATURED = new Set([
 
 export const SERVICES: ServiceSeed[] = TASKS.map(([title, category, base_price, duration_hours]) => {
   const h = hash(title);
+  const imageMap: Record<string, string> = {
+    "Deep Cleaning": "/deepcleaning.jpeg",
+    "Emergency Plumbing": "/emergency_plumbing.jpeg",
+    "Home Repairs": "/assembly&handyman.jpeg",
+    "Handyman": "/assembly&handyman.jpeg",
+  };
   return {
     title,
     category,
@@ -317,6 +323,7 @@ export const SERVICES: ServiceSeed[] = TASKS.map(([title, category, base_price, 
     rating: 4.5 + (h % 5) / 10,
     reviews: 20 + (h % 180),
     popular: FEATURED.has(title) ? 1 : 0,
+    image: imageMap[title] ?? null,
   };
 });
 
@@ -375,11 +382,11 @@ export function seedDatabase() {
   if (existing.n > 0) return;
 
   const insertService = db.prepare(
-    `INSERT INTO services (title, category, description, base_price, duration_hours, icon, rating, reviews, popular)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO services (title, category, description, base_price, duration_hours, icon, rating, reviews, popular, image)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
   );
   for (const s of SERVICES) {
-    insertService.run(s.title, s.category, s.description, s.base_price, s.duration_hours, s.icon, s.rating, s.reviews, s.popular);
+    insertService.run(s.title, s.category, s.description, s.base_price, s.duration_hours, s.icon, s.rating, s.reviews, s.popular, s.image);
   }
 
   // Demo accounts: admin, provider, customer
