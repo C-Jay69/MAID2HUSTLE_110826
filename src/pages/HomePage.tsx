@@ -103,7 +103,11 @@ export function HomePage() {
               <div className="relative w-80 h-80">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#c0ffff] to-[#b9f7d2] opacity-80"></div>
                 <div className="absolute inset-6 rounded-full bg-white shadow-xl flex items-center justify-center">
-                  <Icon name="cleaning_services" className="text-primary text-[120px]" />
+                  <img
+                    src="/landing_page.jpeg"
+                    alt="Landing Page"
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
                 <div className="absolute -top-2 -left-2 size-16 rounded-2xl bg-white shadow-lg flex items-center justify-center rotate-[-8deg]">
                   <Icon name="chair" className="text-primary text-[32px]" />
