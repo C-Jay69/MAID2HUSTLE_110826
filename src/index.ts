@@ -6,6 +6,7 @@ import { handleApi } from "./server/api";
 seedDatabase();
 
 const server = serve({
+  port: 3012,
   routes: {
     "/api/*": (req) => handleApi(req),
     "/*": index,
