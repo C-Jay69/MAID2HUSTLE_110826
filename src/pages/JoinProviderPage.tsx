@@ -16,6 +16,15 @@ const SERVICE_TYPES = [
   { label: "Handyman", icon: "handyman" },
 ];
 
+const MAX_LICENSE_BYTES = 5 * 1024 * 1024;
+const LICENSE_MIME_TYPES = ["application/pdf", "image/jpeg", "image/png"];
+const LICENSE_EXTENSIONS = ["pdf", "jpg", "jpeg", "png"];
+
+function formatBytes(bytes: number) {
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
 export function JoinProviderPage() {
   const { user, refresh } = useAuth();
   const [step, setStep] = useState(1);
@@ -23,10 +32,39 @@ export function JoinProviderPage() {
   const [existing, setExisting] = useState<Vendor | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [license, setLicense] = useState<{ url: string; name: string; size: number } | null>(null);
+  const [licenseBusy, setLicenseBusy] = useState(false);
+  const [licenseError, setLicenseError] = useState<string | null>(null);
 
   useEffect(() => {
     api.myVendor().then(setExisting).catch(() => {});
   }, []);
+
+  const uploadLicenseFile = async (file?: File | null) => {
+    if (!file || licenseBusy) return;
+    setLicenseError(null);
+
+    const extension = file.name.split(".").pop()?.toLowerCase() ?? "";
+    if (!LICENSE_MIME_TYPES.includes(file.type) && !LICENSE_EXTENSIONS.includes(extension)) {
+      setLicenseError("Please upload a PDF, JPG or PNG file.");
+      return;
+    }
+    if (file.size > MAX_LICENSE_BYTES) {
+      setLicenseError("That file is larger than 5MB.");
+      return;
+    }
+
+    setLicenseBusy(true);
+    try {
+      const uploaded = await api.uploadLicense(file);
+      setLicense({ url: uploaded.url, name: uploaded.name, size: uploaded.size });
+    } catch (e) {
+      const message = (e as Error).message;
+      setLicenseError(message === "Unauthorized" ? "Please sign in first to upload your license." : message);
+    } finally {
+      setLicenseBusy(false);
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +83,8 @@ export function JoinProviderPage() {
           thu: ["08:00-10:00", "10:00-12:00", "14:00-16:00"],
           fri: ["08:00-10:00", "10:00-12:00", "14:00-16:00", "16:00-18:00"],
         }),
+        license_url: license?.url,
+        license_name: license?.name,
       });
       await refresh();
       window.location.hash = "/provider";
@@ -146,10 +186,66 @@ export function JoinProviderPage() {
               className="w-full rounded-xl bg-white border border-line px-4 py-3 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary resize-none"
             />
           </div>
-          <div className="border-2 border-dashed border-gray-800 rounded-xl p-8 flex flex-col items-center justify-center text-center gap-2 cursor-pointer">
-            <Icon name="cloud_upload" className="text-gray-400 text-3xl" />
-            <p className="text-sm font-medium">Upload License or ID</p>
-            <p className="text-[10px] text-gray-600">PDF, JPG up to 5MB</p>
+          <div
+            className="border-2 border-dashed border-line rounded-xl p-6 flex flex-col items-center justify-center text-center gap-2"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={(e) => {
+              e.preventDefault();
+              void uploadLicenseFile(e.dataTransfer.files?.[0]);
+            }}
+          >
+            <input
+              id="license-upload"
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+              className="sr-only"
+              onChange={(e) => {
+                void uploadLicenseFile(e.target.files?.[0]);
+                e.target.value = "";
+              }}
+            />
+            {license ? (
+              <>
+                <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Icon name="task_alt" className="text-primary text-[24px]" filled />
+                </div>
+                <p className="text-sm font-semibold break-all px-2">{license.name}</p>
+                <p className="text-[11px] text-ink/50">{formatBytes(license.size)} • Uploaded</p>
+                <div className="flex items-center gap-4 mt-1">
+                  <label htmlFor="license-upload" className="text-primary text-xs font-bold cursor-pointer hover:underline">
+                    Replace
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLicense(null);
+                      setLicenseError(null);
+                    }}
+                    className="text-ink/50 text-xs font-bold hover:text-red-500 transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </>
+            ) : (
+              <label
+                htmlFor="license-upload"
+                className={cn(
+                  "flex flex-col items-center gap-2 w-full cursor-pointer",
+                  licenseBusy && "pointer-events-none opacity-70",
+                )}
+              >
+                <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Icon
+                    name={licenseBusy ? "progress_activity" : "cloud_upload"}
+                    className={cn("text-primary text-[24px]", licenseBusy && "animate-spin")}
+                  />
+                </div>
+                <p className="text-sm font-medium">{licenseBusy ? "Uploading…" : "Upload License or ID"}</p>
+                <p className="text-[11px] text-ink/50">PDF, JPG or PNG — up to 5MB</p>
+              </label>
+            )}
+            {licenseError && <p className="text-red-500 text-xs font-medium mt-1">{licenseError}</p>}
           </div>
           <div className="flex gap-3">
             <button type="button" onClick={() => setStep(1)} className="w-1/3 py-4 rounded-xl border border-gray-800 font-bold text-sm active:scale-95 transition-transform">
@@ -171,6 +267,21 @@ export function JoinProviderPage() {
             <Row label="Category" value={form.service_type} />
             <Row label="Rate" value={form.hourly_rate ? `$${form.hourly_rate}/hr` : "—"} />
             <Row label="Bio" value={form.bio || "—"} />
+            <div className="flex justify-between gap-4">
+              <span className="text-gray-400 text-sm">License / ID</span>
+              {license ? (
+                <a
+                  href={license.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary text-sm font-medium text-right truncate max-w-[60%] hover:underline"
+                >
+                  {license.name}
+                </a>
+              ) : (
+                <span className="text-gray-500 text-sm">Not uploaded</span>
+              )}
+            </div>
           </div>
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
           <div className="flex items-center gap-3 my-6">

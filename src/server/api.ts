@@ -1,6 +1,30 @@
+import { mkdirSync } from "node:fs";
+import path from "node:path";
 import { db } from "./db";
 import { hashPassword, verifyPassword, signToken, getUserFromToken, publicUser } from "./auth";
 import { generateReply } from "./ai";
+
+const UPLOADS_DIR = path.join(import.meta.dir, "..", "..", "uploads");
+const MAX_LICENSE_BYTES = 5 * 1024 * 1024;
+const LICENSE_TYPES: Record<string, string> = {
+  "application/pdf": ".pdf",
+  "image/jpeg": ".jpg",
+  "image/png": ".png",
+};
+const MIME_BY_EXTENSION: Record<string, string> = {
+  ".pdf": "application/pdf",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+};
+
+/** Cheap magic-byte check so a renamed file cannot slip past the MIME type. */
+function looksLikeAllowedFile(bytes: Uint8Array, type: string): boolean {
+  if (type === "application/pdf") return bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46;
+  if (type === "image/jpeg") return bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+  if (type === "image/png") return bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e && bytes[3] === 0x47;
+  return false;
+}
 
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
@@ -153,6 +177,50 @@ function getVendor(id: number) {
   return json({ ...vendor, reviews });
 }
 
+async function uploadLicense(req: Request) {
+  const checked = requireAuth(req);
+  if ("error" in checked) return checked.error;
+  const userId = (checked.user as unknown as { id: number }).id;
+
+  const contentType = (req.headers.get("content-type") ?? "").toLowerCase();
+  if (!contentType.startsWith("multipart/form-data")) return err("Expected a file upload");
+
+  const declaredLength = Number(req.headers.get("content-length") ?? 0);
+  if (declaredLength > MAX_LICENSE_BYTES + 512 * 1024) {
+    return err("File is too large — the limit is 5MB", 413);
+  }
+
+  let form: FormData;
+  try {
+    form = await req.formData();
+  } catch {
+    return err("Could not read the uploaded file");
+  }
+
+  const file = form.get("file");
+  if (!(file instanceof File)) return err("No file was uploaded");
+  if (file.size === 0) return err("That file is empty");
+  if (file.size > MAX_LICENSE_BYTES) return err("File is too large — the limit is 5MB", 413);
+
+  // Fall back to the file extension when the browser reports no MIME type.
+  const mime = LICENSE_TYPES[file.type]
+    ? file.type
+    : MIME_BY_EXTENSION[path.extname(file.name).toLowerCase()] ?? "";
+  const ext = LICENSE_TYPES[mime];
+  if (!ext) return err("Unsupported file type — upload a PDF, JPG or PNG");
+
+  const header = new Uint8Array(await file.slice(0, 4).arrayBuffer());
+  if (!looksLikeAllowedFile(header, mime)) {
+    return err("That file doesn't look like a valid PDF, JPG or PNG");
+  }
+
+  const filename = `license-${userId}-${Date.now()}-${crypto.randomUUID().slice(0, 8)}${ext}`;
+  mkdirSync(UPLOADS_DIR, { recursive: true });
+  await Bun.write(path.join(UPLOADS_DIR, filename), file);
+
+  return json({ url: `/uploads/${filename}`, name: file.name.slice(0, 200), size: file.size, type: mime }, 201);
+}
+
 async function applyVendor(req: Request) {
   const checked = requireAuth(req);
   if ("error" in checked) return checked.error;
@@ -164,15 +232,24 @@ async function applyVendor(req: Request) {
     hourly_rate?: number;
     bio?: string;
     availability?: string;
+    license_url?: string;
+    license_name?: string;
   };
   if (!body.name || !body.service_type) return err("Name and service type are required");
 
   const existing = db.query("SELECT id FROM vendors WHERE user_id = ?").get(user.id);
   if (existing) return err("You already have a provider application", 409);
 
+  // Only accept documents that were produced by our own upload endpoint.
+  const licenseUrl =
+    typeof body.license_url === "string" && /^\/uploads\/[A-Za-z0-9._-]+$/.test(body.license_url)
+      ? body.license_url
+      : null;
+  const licenseName = typeof body.license_name === "string" ? body.license_name.slice(0, 200) : null;
+
   db.query(
-    `INSERT INTO vendors (user_id, name, service_type, hourly_rate, bio, availability)
-     VALUES (?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO vendors (user_id, name, service_type, hourly_rate, bio, availability, license_url, license_name)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
   ).run(
     user.id,
     body.name,
@@ -180,6 +257,8 @@ async function applyVendor(req: Request) {
     body.hourly_rate ?? 30,
     body.bio ?? "",
     body.availability ?? "{}",
+    licenseUrl,
+    licenseName,
   );
 
   // vendor role upgrade
@@ -528,6 +607,9 @@ export async function handleApi(req: Request): Promise<Response> {
     const user = authUser(req);
     return user ? json(user) : err("Unauthorized", 401);
   }
+
+  // Uploads
+  if (path === "/uploads/license" && method === "POST") return uploadLicense(req);
 
   // Services
   if (path === "/services" && method === "GET") return listServices(req);

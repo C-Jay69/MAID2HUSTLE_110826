@@ -25,6 +25,8 @@ CREATE TABLE IF NOT EXISTS vendors (
   hourly_rate REAL NOT NULL DEFAULT 0,
   bio TEXT,
   photo TEXT,
+  license_url TEXT,
+  license_name TEXT,
   availability TEXT NOT NULL DEFAULT '{}',
   verified INTEGER NOT NULL DEFAULT 0,
   approved INTEGER NOT NULL DEFAULT 0,
@@ -111,5 +113,19 @@ CREATE TABLE IF NOT EXISTS messages (
   FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 `);
+
+/**
+ * Bring older databases up to date — `CREATE TABLE IF NOT EXISTS` does not
+ * add columns to tables that already exist.
+ */
+function ensureColumn(table: string, column: string, definition: string) {
+  const columns = db.query(`PRAGMA table_info(${table})`).all() as { name: string }[];
+  if (!columns.some((c) => c.name === column)) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  }
+}
+
+ensureColumn("vendors", "license_url", "TEXT");
+ensureColumn("vendors", "license_name", "TEXT");
 
 export { db };

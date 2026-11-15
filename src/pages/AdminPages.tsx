@@ -43,6 +43,17 @@ export function AdminVendorsPage() {
               </span>
             </div>
             {v.bio && <p className="text-gray-400 text-sm mt-3 line-clamp-2">{v.bio}</p>}
+            {v.license_url && (
+              <a
+                href={v.license_url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-primary mt-2 hover:underline"
+              >
+                <Icon name="description" className="text-[16px]" />
+                <span className="truncate max-w-[220px]">{v.license_name ?? "View license / ID"}</span>
+              </a>
+            )}
             <div className="flex items-center gap-2 mt-3">
               <div className="flex items-center gap-1 text-sm">
                 <Icon name="star" className="text-yellow-400 text-[15px]" filled />

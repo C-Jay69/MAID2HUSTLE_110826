@@ -30,6 +30,8 @@ export interface Vendor {
   hourly_rate: number;
   bio: string;
   photo?: string;
+  license_url?: string | null;
+  license_name?: string | null;
   availability: string;
   verified: number;
   approved: number;
@@ -113,11 +115,41 @@ export const api = {
   vendors: (service_type?: string) =>
     request<Vendor[]>(`/vendors${service_type ? `?service_type=${service_type}` : ""}`),
   vendor: (id: number) => request<Vendor & { reviews: Review[] }>(`/vendors/${id}`),
-  applyVendor: (body: { name: string; service_type: string; hourly_rate: number; bio: string; availability: string }) =>
-    request<Vendor>("/vendors", { method: "POST", body: JSON.stringify(body) }),
+  applyVendor: (body: {
+    name: string;
+    service_type: string;
+    hourly_rate: number;
+    bio: string;
+    availability: string;
+    license_url?: string;
+    license_name?: string;
+  }) => request<Vendor>("/vendors", { method: "POST", body: JSON.stringify(body) }),
   myVendor: () => request<Vendor>("/vendors/me"),
   updateVendor: (body: Partial<{ name: string; service_type: string; hourly_rate: number; bio: string; availability: string }>) =>
     request<Vendor>("/vendors/me", { method: "PATCH", body: JSON.stringify(body) }),
+
+  /** Upload a provider licence/ID document. Returns the served URL. */
+  uploadLicense: async (file: File) => {
+    const token = localStorage.getItem("m2h_token");
+    const form = new FormData();
+    form.append("file", file);
+    const res = await fetch(`${BASE}/uploads/license`, {
+      method: "POST",
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+      body: form,
+    });
+    const data = (await res.json().catch(() => ({}))) as {
+      url?: string;
+      name?: string;
+      size?: number;
+      type?: string;
+      error?: string;
+    };
+    if (!res.ok || !data.url) {
+      throw new Error(data.error ?? `Upload failed (${res.status})`);
+    }
+    return { url: data.url, name: data.name ?? file.name, size: data.size ?? file.size, type: data.type ?? file.type };
+  },
 
   createBooking: (body: { service_id: number; vendor_id: number; date: string; start_time: string; end_time: string; address: string; notes?: string }) =>
     request<Booking>("/bookings", { method: "POST", body: JSON.stringify(body) }),
