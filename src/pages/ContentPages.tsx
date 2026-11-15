@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui/icon";
-import { TopBar, BrandHeader } from "@/components/layout";
+import { TopBar, PageHero } from "@/components/layout";
+import { BG } from "@/lib/page-images";
 
 export function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto">
-      <BrandHeader />
-      <div className="px-5 py-8">
-        <h1 className="text-3xl font-black leading-tight mb-3">
-          Empowering the <span className="gradient-text">Modern Hustle</span>
-        </h1>
-        <div className="aspect-[4/3] gradient-bg-deep rounded-2xl border border-line flex items-center justify-center mb-8">
-          <Icon name="groups" className="text-ink text-[80px]" />
-        </div>
+      <div className="px-1 py-6">
+        <PageHero
+          image={BG.team}
+          eyebrow="Our story"
+          title={<>Empowering the <span className="gradient-text-white">Modern Hustle</span></>}
+          subtitle="Skilled people, fair pay and household tasks done right — one platform for both sides of the hustle."
+        />
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-3 text-primary">The Story</h2>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-ink/70 leading-relaxed">
             MAID 2 HUSTLE started with a simple mission: to empower domestic and service workers to transform their jobs into thriving businesses. We built a platform where skilled professionals — cleaners, plumbers, electricians, landscapers and more — connect directly with customers who value quality.
           </p>
-          <p className="text-gray-400 leading-relaxed mt-3">
+          <p className="text-ink/60 leading-relaxed mt-3">
             No middlemen. No lead fees. Just hustle, matched with people who appreciate it.
           </p>
         </div>
@@ -29,13 +29,13 @@ export function AboutPage() {
             { icon: "bolt", title: "Peak Efficiency", desc: "Book a trusted pro in under 60 seconds, with real-time availability." },
             { icon: "workspace_premium", title: "Obsessive Quality", desc: "Insured up to $1,000 and backed by our Trust & Safety Guarantee." },
           ].map((v) => (
-            <div key={v.title} className="bg-[#2a2a2a] rounded-xl p-4 border border-white/5 flex gap-4">
+            <div key={v.title} className="bg-white rounded-xl p-4 border border-line shadow-sm flex gap-4">
               <div className="size-11 rounded-xl gradient-bg flex items-center justify-center shrink-0">
                 <Icon name={v.icon} className="text-ink text-[22px]" />
               </div>
               <div>
                 <p className="font-bold">{v.title}</p>
-                <p className="text-gray-400 text-sm">{v.desc}</p>
+                <p className="text-ink/60 text-sm">{v.desc}</p>
               </div>
             </div>
           ))}
@@ -69,30 +69,31 @@ export function ContactPage() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <BrandHeader />
-      <TopBar title="Get in Touch" back="/" transparent />
-      <div className="px-5 py-6">
-        <h1 className="text-3xl font-black mb-6">
-          We'd love to <span className="gradient-text">hear from you</span>
-        </h1>
+      <div className="px-1 py-6">
+        <PageHero
+          image={BG.support}
+          eyebrow="Support"
+          title={<>We'd love to <span className="gradient-text-white">hear from you</span></>}
+          subtitle="Questions, feedback or a booking that needs a hand — our team replies within 24 hours."
+        />
         {sent ? (
-          <div className="bg-[#1e132b] rounded-2xl border border-emerald-500/30 p-8 text-center">
-            <Icon name="check_circle" className="text-emerald-400 text-[44px] mx-auto mb-3" filled />
+          <div className="bg-white rounded-2xl border border-emerald-500/40 shadow-sm p-8 text-center">
+            <Icon name="check_circle" className="text-emerald-500 text-[44px] mx-auto mb-3" filled />
             <h3 className="font-black text-lg mb-1">Message sent!</h3>
-            <p className="text-gray-400 text-sm">Our team will get back to you within 24 hours.</p>
+            <p className="text-ink/60 text-sm">Our team will get back to you within 24 hours.</p>
           </div>
         ) : (
           <form onSubmit={submit} className="space-y-4">
             <div>
-              <label className="text-gray-400 text-sm block mb-1.5">Full Name</label>
+              <label className="text-ink/60 text-sm block mb-1.5">Full Name</label>
               <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Jane Doe" className="auth-input" />
             </div>
             <div>
-              <label className="text-gray-400 text-sm block mb-1.5">Email Address</label>
+              <label className="text-ink/60 text-sm block mb-1.5">Email Address</label>
               <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="jane@example.com" className="auth-input" />
             </div>
             <div>
-              <label className="text-gray-400 text-sm block mb-1.5">Message</label>
+              <label className="text-ink/60 text-sm block mb-1.5">Message</label>
               <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={5} placeholder="How can we help you hustle?" className="w-full rounded-xl bg-white border border-line px-4 py-3 text-ink placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary resize-none" />
             </div>
             <button type="submit" className="w-full h-14 rounded-xl gradient-bg text-white font-bold text-lg shadow-lg shadow-primary/25">
@@ -102,17 +103,17 @@ export function ContactPage() {
         )}
 
         <div className="mt-8 space-y-3">
-          <div className="flex items-center gap-3 bg-[#2a2a2a] rounded-xl p-4 border border-white/5">
+          <div className="flex items-center gap-3 bg-white rounded-xl p-4 border border-line shadow-sm">
             <Icon name="mail" className="text-primary text-[22px]" />
             <div>
-              <p className="text-xs text-gray-500">Support Email</p>
+              <p className="text-xs text-ink/50">Support Email</p>
               <p className="font-semibold">support@maid2hustle.com</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 bg-[#2a2a2a] rounded-xl p-4 border border-white/5">
+          <div className="flex items-center gap-3 bg-white rounded-xl p-4 border border-line shadow-sm">
             <Icon name="call" className="text-primary text-[22px]" />
             <div>
-              <p className="text-xs text-gray-500">Phone Number</p>
+              <p className="text-xs text-ink/50">Phone Number</p>
               <p className="font-semibold">+1 (555) 012-3456</p>
             </div>
           </div>
@@ -141,17 +142,21 @@ export function HelpPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <TopBar title="Help Center" back="/profile" />
-      <div className="p-4">
-        <div className="rounded-2xl gradient-bg p-6 mb-6">
-          <h2 className="text-xl font-black mb-1">How can we help?</h2>
-          <div className="mt-4 bg-white/30 rounded-xl h-12 flex items-center gap-2 px-4">
-            <Icon name="search" className="text-ink/70" />
-            <span className="text-ink/60 text-sm">Search help topics...</span>
+      <div className="px-1 pb-4">
+        <PageHero
+          image={BG.cleaning}
+          eyebrow="24/7 support"
+          title="How can we help?"
+          subtitle="Answers to the questions customers ask most — or reach a real person any time."
+        >
+          <div className="bg-white rounded-full h-12 flex items-center gap-2 px-4 max-w-md shadow-xl shadow-black/20">
+            <Icon name="search" className="text-ink/40" />
+            <span className="text-ink/50 text-sm">Search help topics...</span>
           </div>
-        </div>
+        </PageHero>
         <div className="grid grid-cols-2 gap-3 mb-6">
           {categories.map((c) => (
-            <button key={c.label} className="bg-[#2a2a2a] rounded-xl p-4 border border-white/5 flex flex-col items-center gap-2 hover:border-primary/40 transition-colors">
+            <button key={c.label} className="bg-white rounded-xl p-4 border border-line shadow-sm flex flex-col items-center gap-2 hover:border-primary/40 transition-colors">
               <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Icon name={c.icon} className="text-primary text-[22px]" />
               </div>
@@ -162,12 +167,12 @@ export function HelpPage() {
         <h3 className="text-ink font-bold mb-3">Top Questions</h3>
         <div className="space-y-2">
           {faqs.map((f, i) => (
-            <div key={i} className="bg-[#2a2a2a] rounded-xl border border-white/5 overflow-hidden">
+            <div key={i} className="bg-white rounded-xl border border-line shadow-sm overflow-hidden">
               <button onClick={() => setOpen(open === i ? null : i)} className="w-full flex items-center justify-between p-4 text-left">
                 <span className="font-semibold text-sm pr-2">{f.q}</span>
-                <Icon name={open === i ? "expand_less" : "expand_more"} className="text-gray-500 shrink-0" />
+                <Icon name={open === i ? "expand_less" : "expand_more"} className="text-ink/40 shrink-0" />
               </button>
-              {open === i && <p className="px-4 pb-4 text-gray-400 text-sm">{f.a}</p>}
+              {open === i && <p className="px-4 pb-4 text-ink/60 text-sm">{f.a}</p>}
             </div>
           ))}
         </div>
@@ -186,24 +191,28 @@ export function HelpPage() {
 
 export function BlogPage() {
   const posts = [
-    { id: 1, icon: "lightbulb", title: "5 Deep-Cleaning Hacks That Save You Hours", tag: "Home Care", read: "4 min" },
-    { id: 2, icon: "currency_exchange", title: "How Providers Earn More on MAID 2 HUSTLE", tag: "For Providers", read: "3 min" },
-    { id: 3, icon: "calendar_month", title: "The Perfect Pre-Holiday Home Prep Checklist", tag: "Tips", read: "5 min" },
-    { id: 4, icon: "verified_user", title: "What Our Trust & Safety Guarantee Really Covers", tag: "Safety", read: "2 min" },
+    { id: 1, icon: "lightbulb", image: BG.cleaning, title: "5 Deep-Cleaning Hacks That Save You Hours", tag: "Home Care", read: "4 min" },
+    { id: 2, icon: "currency_exchange", image: BG.providers, title: "How Providers Earn More on MAID 2 HUSTLE", tag: "For Providers", read: "3 min" },
+    { id: 3, icon: "calendar_month", image: BG.assembly, title: "The Perfect Pre-Holiday Home Prep Checklist", tag: "Tips", read: "5 min" },
+    { id: 4, icon: "verified_user", image: BG.plumbing, title: "What Our Trust & Safety Guarantee Really Covers", tag: "Safety", read: "2 min" },
   ];
   return (
     <div className="max-w-3xl mx-auto">
       <TopBar title="The Hustle Blog" back="/" />
-      <div className="p-4 space-y-4">
+      <div className="px-1 pb-4 space-y-4">
         {posts.map((p) => (
-          <button key={p.id} className="w-full text-left bg-white rounded-xl border border-line overflow-hidden hover:border-primary/40 transition-colors">
-            <div className="h-28 gradient-bg-deep flex items-center justify-center">
-              <Icon name={p.icon} className="text-ink text-[44px]" />
+          <button key={p.id} className="group w-full text-left bg-white rounded-xl border border-line overflow-hidden hover:border-primary/40 transition-colors shadow-sm">
+            <div className="relative h-36 overflow-hidden">
+              <img src={p.image} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-[center_30%] transition-transform duration-300 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#041f17]/55 to-transparent" />
+              <span className="absolute bottom-3 left-3 size-9 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                <Icon name={p.icon} className="text-primary text-[20px]" />
+              </span>
             </div>
             <div className="p-4">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-primary text-[10px] font-bold uppercase tracking-widest">{p.tag}</span>
-                <span className="text-gray-500 text-[10px]">• {p.read}</span>
+                <span className="text-ink/40 text-[10px]">• {p.read}</span>
               </div>
               <p className="font-bold">{p.title}</p>
             </div>

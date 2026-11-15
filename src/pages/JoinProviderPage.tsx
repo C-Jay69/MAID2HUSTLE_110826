@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/icon";
-import { TopBar } from "@/components/layout";
+import { TopBar, PageHero } from "@/components/layout";
+import { BG } from "@/lib/page-images";
 import { useAuth } from "@/lib/auth";
 import { api, type Vendor } from "@/lib/api";
 import { cn } from "@/lib/utils";
@@ -80,10 +81,18 @@ export function JoinProviderPage() {
     <div className="max-w-3xl mx-auto flex flex-col">
       <TopBar title="Maid 2 Hustle" subtitle="Provider Portal" back="/" />
 
+      <PageHero
+        image={BG.providers}
+        eyebrow="Provider portal"
+        title="Turn your hustle into a business"
+        subtitle="Join vetted pros earning on their own schedule — no lead fees, weekly payouts and customers who value quality."
+        className="mb-4"
+      />
+
       {/* Step indicators */}
       <div className="flex w-full items-center justify-center gap-3 py-5">
         {[1, 2, 3].map((s) => (
-          <div key={s} className={cn("h-1.5 w-12 rounded-full", s <= step ? "bg-primary" : "bg-gray-800")} />
+          <div key={s} className={cn("h-1.5 w-12 rounded-full", s <= step ? "bg-primary" : "bg-line")} />
         ))}
       </div>
 

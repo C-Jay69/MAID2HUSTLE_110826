@@ -20,10 +20,10 @@ export function ProfilePage() {
           </div>
         </div>
         <h1 className="text-ink text-2xl font-black mt-3">{user?.name ?? "Guest"}</h1>
-        <p className="text-gray-400 text-sm">
+        <p className="text-ink/60 text-sm">
           {user?.email ?? "Sign in to manage your account"} {user && `• ${user.role}`}
         </p>
-        <p className="text-gray-600 text-xs mt-1">Member since 2026</p>
+        <p className="text-ink/50 text-xs mt-1">Member since 2026</p>
       </div>
 
       <div className="px-5 space-y-2 mt-4">
@@ -51,19 +51,19 @@ export function ProfilePage() {
         )}
       </div>
 
-      <p className="text-center text-gray-700 text-xs mt-8">MAID 2 HUSTLE v1.0.0</p>
+      <p className="text-center text-ink/40 text-xs mt-8">MAID 2 HUSTLE v1.0.0</p>
     </div>
   );
 }
 
 function MenuItem({ icon, label, onClick }: { icon: string; label: string; onClick: () => void }) {
   return (
-    <button onClick={onClick} className="w-full flex items-center gap-3 bg-[#2a2a2a] px-4 py-4 rounded-xl border border-white/5 hover:border-primary/40 transition-colors text-left">
+    <button onClick={onClick} className="w-full flex items-center gap-3 bg-white shadow-sm px-4 py-4 rounded-xl border border-line hover:border-primary/40 transition-colors text-left">
       <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
         <Icon name={icon} className="text-primary text-[20px]" />
       </div>
       <span className="flex-1 font-medium text-sm">{label}</span>
-      <Icon name="chevron_right" className="text-gray-500" />
+      <Icon name="chevron_right" className="text-ink/40" />
     </button>
   );
 }
@@ -74,11 +74,11 @@ export function MenuPage() {
     <div className="mx-auto max-w-2xl">
       <TopBar title="Menu" back="/" />
       <div className="p-5">
-        <div className="flex items-center gap-4 bg-[#2a2a2a] rounded-2xl p-4 border border-white/5 mb-6">
+        <div className="flex items-center gap-4 bg-white shadow-sm rounded-2xl p-4 border border-line mb-6">
           <ProviderAvatar name={user?.name ?? "G"} size="h-14 w-14" />
           <div>
             <p className="font-bold text-lg">{user?.name ?? "Guest"}</p>
-            <p className="text-gray-400 text-sm">{user?.email ?? "Sign in for personalized services"}</p>
+            <p className="text-ink/60 text-sm">{user?.email ?? "Sign in for personalized services"}</p>
           </div>
         </div>
         <div className="space-y-2">

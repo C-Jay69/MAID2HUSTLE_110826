@@ -308,10 +308,10 @@ const FEATURED = new Set([
 export const SERVICES: ServiceSeed[] = TASKS.map(([title, category, base_price, duration_hours]) => {
   const h = hash(title);
   const imageMap: Record<string, string> = {
-    "Deep Cleaning": "/deepcleaning.jpeg",
-    "Emergency Plumbing": "/emergency_plumbing.jpeg",
-    "Home Repairs": "/assembly&handyman.jpeg",
-    "Handyman": "/assembly&handyman.jpeg",
+    "Deep Cleaning": "/backgrounds/cleaning.jpg",
+    "Emergency Plumbing": "/backgrounds/plumbing.jpg",
+    "Home Repairs": "/backgrounds/plumbing.jpg",
+    "Handyman": "/backgrounds/assembly.jpg",
   };
   return {
     title,

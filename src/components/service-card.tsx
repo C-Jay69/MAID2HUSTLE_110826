@@ -1,16 +1,25 @@
 import { Icon, StarRating, currency } from "@/components/ui/icon";
 import { navigate } from "@/lib/router";
+import { serviceImage } from "@/lib/page-images";
 import type { Service } from "@/lib/api";
 
 export function ServiceCard({ service, compact = false }: { service: Service; compact?: boolean }) {
   return (
     <div
       onClick={() => navigate(`/service/${service.id}`)}
-      className="flex flex-col items-stretch justify-start rounded-2xl overflow-hidden bg-white border border-line shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer"
+      className="group flex flex-col items-stretch justify-start rounded-2xl overflow-hidden bg-white border border-line shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer"
     >
-      <div className="relative w-full aspect-[16/9] gradient-bg-deep flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-black"></div>
-        <Icon name={service.icon ?? "cleaning_services"} className="text-[72px] opacity-90" />
+      <div className="relative w-full aspect-[16/9] overflow-hidden bg-line">
+        <img
+          src={serviceImage(service)}
+          alt={service.title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#041f17]/60 via-[#041f17]/10 to-transparent" />
+        <div className="absolute bottom-3 left-3 size-9 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+          <Icon name={service.icon ?? "cleaning_services"} className="text-primary text-[20px]" />
+        </div>
         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
           <Icon name="star" className="text-yellow-500 text-[16px]" filled />
           <span className="text-ink text-xs font-bold tracking-tighter">

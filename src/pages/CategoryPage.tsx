@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui/icon";
-import { TopBar, BrandHeader } from "@/components/layout";
+import { PageHero } from "@/components/layout";
 import { useRouter } from "@/lib/router";
+import { BG } from "@/lib/page-images";
 import { BROWSE_CATEGORIES, CATEGORY_SUBCATEGORIES, SUBCATEGORY_ICONS } from "@/lib/categories";
 import { cn } from "@/lib/utils";
 
@@ -11,15 +12,14 @@ export function CategoryPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <BrandHeader />
-      <TopBar title="Browse by Category" back="/" transparent />
+      <PageHero
+        image={BG.services}
+        eyebrow="Every task, covered"
+        title="Browse by Category"
+        subtitle="Find the perfect service for your task. Browse our curated categories and select a sub-category to see available providers."
+      />
 
-      <div className="px-5 py-6">
-        <p className="text-ink/60 text-sm mb-6 max-w-2xl">
-          Find the perfect service for your task. Browse our curated categories and select a
-          sub-category to see available providers.
-        </p>
-
+      <div className="px-1 pb-6">
         <div className="grid gap-3">
           {BROWSE_CATEGORIES.map((cat) => {
             const subs = CATEGORY_SUBCATEGORIES[cat.label] ?? [];
@@ -31,7 +31,7 @@ export function CategoryPage() {
                   className="w-full flex items-center gap-3 p-4 text-left hover:bg-primary/5 transition-colors"
                 >
                   <div className="size-10 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                    <Icon name={cat.icon} className="text-primary text-[22px]" />
+                    <Icon name={cat.icon} className="text-white text-[22px]" />
                   </div>
                   <span className="text-lg font-bold flex-1">{cat.label}</span>
                   <span className="text-xs font-semibold text-ink/40 bg-primary/10 px-2.5 py-1 rounded-full">

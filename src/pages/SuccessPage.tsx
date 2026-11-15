@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Icon, formatDateTime } from "@/components/ui/icon";
+import { BrandLogo } from "@/components/layout";
+import { BG } from "@/lib/page-images";
 import { useRouter } from "@/lib/router";
 import { api, type Booking } from "@/lib/api";
 
@@ -17,15 +19,13 @@ export function SuccessPage() {
   }, [bookingId]);
 
   return (
-    <div className="min-h-screen bg-page flex flex-col">
+    <div className="relative isolate min-h-screen bg-page flex flex-col">
+      <img src={BG.home} alt="" aria-hidden="true" className="fixed inset-0 -z-20 h-full w-full object-cover" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-page/93 via-page/96 to-page/98" />
+
       <header className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-2.5">
-          <div className="size-9 gradient-bg rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-            <Icon name="bolt" className="text-[22px]" />
-          </div>
-          <span className="text-xl font-black tracking-tight uppercase">
-            Maid <span className="gradient-text">2 Hustle</span>
-          </span>
+          <BrandLogo className="h-9" />
         </div>
         <button onClick={() => (window.location.hash = "/")} className="size-10 flex items-center justify-center rounded-full hover:bg-primary/10">
           <Icon name="close" className="text-[24px]" />

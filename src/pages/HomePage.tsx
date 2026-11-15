@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/icon";
 import { navigate } from "@/lib/router";
+import { BG } from "@/lib/page-images";
 import { api, type Service } from "@/lib/api";
 import { ServiceCard } from "@/components/service-card";
 
@@ -56,10 +57,18 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="rounded-3xl overflow-hidden mb-10 relative">
-        <div className="bg-gradient-to-br from-[#c0ffff] via-[#e6fff7] to-[#fffdd0] px-6 sm:px-12 py-12 sm:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl">
-            <div>
+      <section className="rounded-3xl overflow-hidden mb-10 relative border border-line shadow-xl shadow-black/5">
+        <div className="relative isolate px-6 sm:px-12 py-12 sm:py-16 lg:py-20">
+          <img
+            src={BG.home}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f4fffb]/97 via-[#effdf7]/90 to-[#fffdf0]/45" />
+          <div className="relative grid lg:grid-cols-2 gap-10 items-center max-w-5xl">
+            <div className="min-w-0">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 text-primary text-xs font-bold uppercase tracking-widest mb-5 shadow-sm">
                 <Icon name="verified" className="text-[16px]" filled /> Trusted &amp; Insured
               </span>
@@ -70,15 +79,15 @@ export function HomePage() {
                 From furniture assembly to deep cleaning — one platform for every task on your to-do list. Quality guaranteed for the modern hustle.
               </p>
 
-              <form onSubmit={submitSearch} className="mt-7 flex items-center gap-2 bg-white rounded-2xl p-2 shadow-lg shadow-black/5 max-w-lg">
-                <Icon name="search" className="text-ink/40 text-[24px] ml-2" />
+              <form onSubmit={submitSearch} className="mt-7 flex items-center gap-2 bg-white rounded-2xl p-2 shadow-lg shadow-black/5 w-full max-w-lg">
+                <Icon name="search" className="text-ink/40 text-[24px] ml-2 shrink-0" />
                 <input
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                   placeholder="What do you need done? e.g. TV mounting, packing help..."
-                  className="flex-1 h-12 bg-transparent text-sm outline-none placeholder:text-gray-400"
+                  className="flex-1 min-w-0 h-12 bg-transparent text-sm outline-none placeholder:text-gray-400"
                 />
-                <button type="submit" className="h-12 px-6 rounded-xl gradient-bg text-sm font-bold shadow-lg shadow-primary/25">
+                <button type="submit" className="h-12 px-4 sm:px-6 rounded-xl gradient-bg text-sm font-bold shadow-lg shadow-primary/25 shrink-0">
                   Search
                 </button>
               </form>
@@ -102,11 +111,11 @@ export function HomePage() {
             <div className="hidden lg:flex items-center justify-center">
               <div className="relative w-80 h-80">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#c0ffff] to-[#b9f7d2] opacity-80"></div>
-                <div className="absolute inset-6 rounded-full bg-white shadow-xl flex items-center justify-center">
+                <div className="absolute inset-6 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden">
                   <img
-                    src="/landing_page.jpeg"
-                    alt="Landing Page"
-                    className="w-full h-full object-cover rounded-full"
+                    src={BG.team}
+                    alt="MAID 2 HUSTLE home service professionals"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -top-2 -left-2 size-16 rounded-2xl bg-white shadow-lg flex items-center justify-center rotate-[-8deg]">

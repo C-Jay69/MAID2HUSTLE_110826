@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Icon, StatusBadge, formatDateTime, currency } from "@/components/ui/icon";
 import { EmptyState } from "@/components/service-card";
+import { PageHero } from "@/components/layout";
+import { BG } from "@/lib/page-images";
 import { useAuth } from "@/lib/auth";
 import { api, type Booking } from "@/lib/api";
 import { cn } from "@/lib/utils";
@@ -38,10 +40,12 @@ export function BookingsPage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-3xl font-black tracking-tight">{isProvider ? "My Jobs" : "Your Bookings"}</h1>
-        <p className="text-ink/50 text-sm mt-1">Track, manage, and review your scheduled services.</p>
-      </div>
+      <PageHero
+        image={BG.support}
+        eyebrow={isProvider ? "Provider jobs" : "Your schedule"}
+        title={isProvider ? "My Jobs" : "Your Bookings"}
+        subtitle="Track, manage, and review your scheduled services."
+      />
 
       {/* Tabs */}
       <div className="flex p-1 bg-white border border-line rounded-xl w-full sm:w-80 mb-6">

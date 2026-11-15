@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/icon";
 import { ServiceCard, CategoryChip, EmptyState } from "@/components/service-card";
+import { PageHero } from "@/components/layout";
 import { useRouter } from "@/lib/router";
+import { BG } from "@/lib/page-images";
 import { api, type Service } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
@@ -43,27 +45,30 @@ export function ExplorePage() {
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <h1 className="text-3xl font-black tracking-tight">Explore Services</h1>
-            <p className="text-ink/50 text-sm mt-1">{services.length} services {activeCat !== "All" && `in ${activeCat}`}</p>
-          </div>
-          <form onSubmit={submitSearch} className="flex items-center gap-2 bg-white rounded-full p-1.5 pl-4 border border-line focus-within:border-primary w-full sm:w-80">
-            <Icon name="search" className="text-ink/40 text-[20px]" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search tasks & services..."
-              className="flex-1 h-9 bg-transparent text-sm outline-none placeholder:text-gray-400"
-            />
-            <button type="submit" className="h-9 px-4 rounded-full gradient-bg text-xs font-bold">
-              Search
-            </button>
-          </form>
-        </div>
+      <PageHero
+        image={BG.explore}
+        eyebrow="Book in 60 seconds"
+        title="Explore Services"
+        subtitle={`${services.length} services${activeCat !== "All" ? ` in ${activeCat}` : ""} — background-checked pros, real-time availability and our $1,000 Trust & Safety Guarantee.`}
+      >
+        <form
+          onSubmit={submitSearch}
+          className="flex items-center gap-2 bg-white rounded-full p-1.5 pl-4 border border-white/50 focus-within:border-primary w-full sm:w-96 shadow-xl shadow-black/20"
+        >
+          <Icon name="search" className="text-ink/40 text-[20px] shrink-0" />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search tasks & services..."
+            className="flex-1 min-w-0 h-9 bg-transparent text-sm text-ink outline-none placeholder:text-gray-400"
+          />
+          <button type="submit" className="h-9 px-4 rounded-full gradient-bg text-xs font-bold">
+            Search
+          </button>
+        </form>
+      </PageHero>
 
+      <div className="mb-6">
         {/* Category chips */}
         <div className="flex gap-2.5 mt-5 overflow-x-auto hide-scrollbar pb-1">
           {categories.map((c) => (

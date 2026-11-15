@@ -2,10 +2,25 @@ import { useState } from "react";
 import { useRouter, Link } from "@/lib/router";
 import { useAuth } from "@/lib/auth";
 import { Icon } from "@/components/ui/icon";
+import { pageBackground } from "@/lib/page-images";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
 type Role = "customer" | "provider" | "admin";
+
+/** Full brand lockup — the logo already contains the wordmark. */
+export function BrandLogo({ className }: { className?: string }) {
+  return (
+    <img
+      src="/brand/logo.png"
+      alt="MAID 2 HUSTLE"
+      width={836}
+      height={195}
+      className={cn("w-auto select-none", className)}
+      draggable={false}
+    />
+  );
+}
 
 export function AppShell({
   children,
@@ -41,27 +56,32 @@ export function AppShell({
   const allLinks = dashboardLink ? [...links, dashboardLink] : links;
 
   return (
-    <div className="min-h-screen bg-page text-ink font-display">
+    <div className="relative isolate min-h-screen bg-page text-ink font-display">
+      {/* Page backdrop — one of the brand photographs, softened so content stays readable */}
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url("${pageBackground(path)}")` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-page/85 via-page/93 to-page/97" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_0%,rgba(0,179,166,0.10),transparent_60%)]" />
+      </div>
+
       {/* Top navigation */}
       <header className="sticky top-0 z-50 glass-header border-b border-line">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 gap-4">
-            <Link to="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="size-9 gradient-bg rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-                <Icon name="bolt" className="text-[22px]" />
-              </div>
-              <span className="text-xl font-black tracking-tight uppercase">
-                Maid <span className="gradient-text">2 Hustle</span>
-              </span>
+            <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="MAID 2 HUSTLE — home">
+              <BrandLogo className="h-9" />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden xl:flex items-center gap-0.5">
               {allLinks.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
                   className={cn(
-                    "px-3 py-2 rounded-lg text-sm font-semibold transition-colors",
+                    "px-2.5 py-2 rounded-lg text-[13px] font-semibold whitespace-nowrap transition-colors",
                     l.active ? "text-primary bg-primary/10" : "text-ink/70 hover:text-primary hover:bg-primary/5",
                   )}
                 >
@@ -77,7 +97,8 @@ export function AppShell({
               </div>
               <button
                 onClick={() => setMenuOpen((o) => !o)}
-                className="md:hidden size-10 flex items-center justify-center rounded-lg hover:bg-primary/10 transition-colors"
+                className="xl:hidden size-10 flex items-center justify-center rounded-lg hover:bg-primary/10 transition-colors"
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
               >
                 <Icon name={menuOpen ? "close" : "menu"} className="text-[24px]" />
               </button>
@@ -87,7 +108,7 @@ export function AppShell({
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden border-t border-line bg-white/95">
+          <div className="xl:hidden border-t border-line bg-white/95">
             <nav className="mx-auto w-full max-w-7xl px-4 py-3 flex flex-col gap-1">
               {allLinks.map((l) => (
                 <Link
@@ -127,23 +148,15 @@ export function AppShell({
 
 function SearchBox() {
   const { navigate } = useRouter();
-  const [q, setQ] = useState("");
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        navigate(`/explore${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ""}`);
-      }}
-      className="hidden lg:flex items-center gap-2 h-10 px-3 rounded-full bg-white border border-line focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/15 w-64"
+    <button
+      onClick={() => navigate("/explore")}
+      className="size-10 flex items-center justify-center rounded-full text-ink/60 hover:text-primary hover:bg-primary/10 transition-colors"
+      aria-label="Search services"
+      title="Search services"
     >
-      <Icon name="search" className="text-ink/40 text-[20px]" />
-      <input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Search tasks & services..."
-        className="flex-1 bg-transparent text-sm outline-none placeholder:text-gray-400"
-      />
-    </form>
+      <Icon name="search" className="text-[22px]" />
+    </button>
   );
 }
 
@@ -172,13 +185,13 @@ function AuthButtons() {
     <div className="flex items-center gap-2">
       <button
         onClick={() => navigate("/login")}
-        className="px-4 py-2 rounded-full text-sm font-bold text-ink hover:text-primary transition-colors"
+        className="px-4 py-2 rounded-full text-sm font-bold text-ink hover:text-primary transition-colors whitespace-nowrap"
       >
         Sign In
       </button>
       <button
         onClick={() => navigate("/register")}
-        className="px-5 py-2 rounded-full gradient-bg text-sm font-bold shadow-lg shadow-primary/25 hover:opacity-90 transition-opacity"
+        className="px-5 py-2 rounded-full gradient-bg text-sm font-bold shadow-lg shadow-primary/25 hover:opacity-90 transition-opacity whitespace-nowrap"
       >
         Get Started
       </button>
@@ -287,9 +300,7 @@ export function TopBar({
         </button>
       ) : (
         <div className="flex items-center gap-2">
-          <div className="size-8 gradient-bg rounded-lg flex items-center justify-center">
-            <Icon name="bolt" className="text-[18px]" />
-          </div>
+          <img src="/brand/logo-mark.png" alt="" aria-hidden="true" width={240} height={240} className="size-8 object-contain" />
         </div>
       )}
       <div className={cn("flex-1 min-w-0", title ? "text-left" : "")}>
@@ -305,18 +316,58 @@ export function BrandHeader() {
   const { navigate } = useRouter();
   return (
     <div className="flex items-center justify-between">
-      <Link to="/" className="flex items-center gap-2.5">
-        <div className="size-9 gradient-bg rounded-xl flex items-center justify-center">
-          <Icon name="bolt" className="text-[22px]" />
-        </div>
-        <span className="text-xl font-black tracking-tight uppercase">
-          Maid <span className="gradient-text">2 Hustle</span>
-        </span>
+      <Link to="/" className="flex items-center gap-2.5" aria-label="MAID 2 HUSTLE — home">
+        <BrandLogo className="h-9" />
       </Link>
       <button onClick={() => navigate("/menu")} className="md:hidden size-10 flex items-center justify-center rounded-lg hover:bg-primary/10">
         <Icon name="menu" className="text-[24px]" />
       </button>
     </div>
+  );
+}
+
+/**
+ * Full-width photographic banner used at the top of top-level pages.
+ * The image is decorative; the heading carries the meaning.
+ */
+export function PageHero({
+  image,
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  className,
+}: {
+  image: string;
+  eyebrow?: string;
+  title: ReactNode;
+  subtitle?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <section
+      className={cn(
+        "relative isolate overflow-hidden rounded-3xl mb-8 border border-line shadow-xl shadow-black/10",
+        className,
+      )}
+    >
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_35%]"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#041f17]/92 via-[#041f17]/70 to-[#041f17]/15" />
+      <div className="relative px-6 py-10 sm:px-10 sm:py-14 text-white">
+        {eyebrow && (
+          <p className="text-[11px] font-black uppercase tracking-[0.22em] text-emerald-300 mb-2">{eyebrow}</p>
+        )}
+        <h1 className="text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] max-w-2xl">{title}</h1>
+        {subtitle && <p className="mt-3 text-white/80 text-sm sm:text-base leading-relaxed max-w-xl">{subtitle}</p>}
+        {children && <div className="mt-6">{children}</div>}
+      </div>
+    </section>
   );
 }
 
@@ -329,12 +380,7 @@ function Footer() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <div className="size-8 gradient-bg rounded-lg flex items-center justify-center">
-              <Icon name="bolt" className="text-[18px]" />
-            </div>
-            <span className="text-lg font-black tracking-tight uppercase">
-              Maid <span className="gradient-text">2 Hustle</span>
-            </span>
+            <BrandLogo className="h-11" />
           </div>
           <p className="text-sm text-ink/60 leading-relaxed">
             Empowering workers to become thriving businesses. Book trusted home services in minutes — backed by our $1,000 Trust &amp; Safety Guarantee.

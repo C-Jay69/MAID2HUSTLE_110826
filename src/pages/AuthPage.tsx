@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui/icon";
 import { useAuth } from "@/lib/auth";
+import { BG } from "@/lib/page-images";
 import { cn } from "@/lib/utils";
 
 export function AuthPage({ mode }: { mode: "login" | "register" }) {
@@ -29,16 +30,20 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#c0ffff] via-page to-[#fffdd0] text-ink flex flex-col items-center justify-center px-6 py-10">
+    <div className="relative isolate min-h-screen text-ink flex flex-col items-center justify-center px-6 py-10">
+      <img src={BG.providers} alt="" aria-hidden="true" className="fixed inset-0 -z-20 h-full w-full object-cover" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#f4fffb]/92 via-page/90 to-[#fffdf0]/85" />
+
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
-          <div className="size-14 gradient-bg rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-primary/30">
-            <Icon name="bolt" className="text-[32px]" />
-          </div>
-          <h1 className="text-3xl font-black tracking-tight">
-            <span className="gradient-text">MAID 2 HUSTLE</span>
-          </h1>
-          <p className="text-ink/60 mt-2 text-sm">
+          <img
+            src="/brand/logo.png"
+            alt="MAID 2 HUSTLE"
+            width={836}
+            height={195}
+            className="h-12 w-auto mb-4 drop-shadow-sm"
+          />
+          <p className="text-ink/60 text-sm text-center">
             {mode === "login" ? "Welcome back! Sign in to continue." : "Create your account in seconds."}
           </p>
         </div>

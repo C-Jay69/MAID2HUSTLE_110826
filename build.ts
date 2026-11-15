@@ -1,5 +1,5 @@
 import tailwind from "bun-plugin-tailwind";
-import { rm } from "node:fs/promises";
+import { cp, rm } from "node:fs/promises";
 import path from "node:path";
 
 const outdir = path.join(process.cwd(), "dist");
@@ -21,4 +21,11 @@ const result = await Bun.build({
 
 for (const output of result.outputs) {
   console.log(` ${path.relative(process.cwd(), output.path)}  ${(output.size / 1024).toFixed(1)} KB`);
+}
+
+// Brand + background assets are served from the site root at runtime, so copy
+// them next to the built HTML for static deployments of `dist/`.
+for (const dir of ["brand", "backgrounds"]) {
+  await cp(path.join(process.cwd(), "public", dir), path.join(outdir, dir), { recursive: true });
+  console.log(` ${path.join("dist", dir)}  (copied from public/${dir})`);
 }
